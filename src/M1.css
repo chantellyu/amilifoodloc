@@ -1,0 +1,13 @@
+.M1d div {
+    white-space: pre-wrap;
+    text-align: center;
+}
+
+td {
+    white-space: pre;
+    display: flex;
+}
+
+tr {
+    display: flex;
+}

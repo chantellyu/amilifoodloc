@@ -1,0 +1,50 @@
+Think_Well​​,Live_Well​​,Feel_Well,Type_M,Formulation​​,Recommended_food_items,Recommended_food_ingredients,,,
+Good/Great,Good/Great​,Good/Great,One​,One,"Honeydew
+Watermelon
+Almonds
+Green tea
+Lentils","Red Capsicum
+Lettuce
+Shiitake Mushroom
+Zucchini
+Cauliflower",,"*Note: this default version will only be used for healthy adults with no known or diagnosed diseases
+- Food from this list will be swapped with other foods based on diesase categories and their food score.",
+Poor,Poor,Poor,Two,2,"Blueberry
+Pineapple
+Kombucha
+Tempeh
+steam / baked Tofu","Okra
+Carrot
+Cucumber
+Red cabbage
+Wheat Bran",,,
+"Good/Great​","PoorGood/Great​",Poor,Five,5,"Orange
+Avocado
+Cheese
+Wholegrain cereal
+Brown rice","Milk
+Brussel sprouts
+Chickpeas
+Eggs
+Salmon",,,
+Poor,"Good/Great​Poor","PoorGood/Great​",Three,3,"Kiwi
+Banana
+Sweet potato
+Kimchi
+Greek yogurt","Kale
+Spinach
+Tomato
+Potato
+Miso",,,
+Good/Great​,Poor,Good/Great​,Four,4,"Grapes
+Pomelo
+Whole meal bread
+Oats
+Steam / baked tofu","Broccoli
+Cabbage
+Bitter melon
+Beetroot
+Pumpkin",,,
+,,,,,,,,,
+References:,,,,,,,,,
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5986471/,,,,,,,,

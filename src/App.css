@@ -1,6 +1,14 @@
 .App {
-  text-align: center;
+  text-align: left;
+  /* Center the div  */
+  margin: 0 auto;
+
+  /* Dimensions  */
+  width: 80%; /* Can be in percentage also. */
+  height: auto;
+  
 }
+
 
 .App-logo {
   height: 40vmin;
@@ -35,4 +43,60 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.div {
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+}
+
+.Survey {
+  text-align: left;
+  padding: 25px 50px 25px 100px;
+  /* Center the div  */
+  margin: 0 auto;
+
+  /* Dimensions  */
+  width: 80%; /* Can be in percentage also. */
+  height: auto;
+  line-height: 200%;
+}
+
+.DOB p {
+  margin: 0 auto;
+}
+
+.height, .weight, .family_history, .chronic_diseases p {
+  margin: 0 auto;
+}
+
+table {
+  margin: auto;
+  line-height: 200%;
+  padding: 10%;
+}
+
+th, td {
+  margin: auto;
+  line-height: 200%;
+  padding: 10%;
+}
+
+.question-card {
+  /* Center the div  */
+  margin: 0 auto;
+
+  /* Dimensions  */
+  width: 80%; /* Can be in percentage also. */
+  height: auto;
+
+  /* Visual  */
+  background-color: #6436bc;
+  padding: 16px;
+  border-radius: 16px;
+  color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
