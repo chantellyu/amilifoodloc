@@ -2,12 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Papa from 'papaparse';
 import Data from './Food_Logic_Vitality.csv';
 import MAPData from './MB_food.csv';
-import M1 from './M1.js';
-import M2 from './M2.js';
-import M3 from './M3.js';
-import M4 from './M4.js';
-import M5 from './M5.js';
-import Food1 from './Food1.js';
 import './App.css';
 import MBrender from './MBrender';
 import Datao from './open_s.csv';
@@ -129,7 +123,24 @@ function App() {
       setOpens(parsedDatao)
     }
     fetchoData();
-    var graincount = 0;
+    
+
+    
+    //setFinalData(filteredfood.filter(item => rendFruit1(item)));
+    const onPageLoad = () => {
+      setStarte(true);
+    }
+    if (document.readyState === 'complete') {
+      onPageLoad();
+    } else {
+      window.addEventListener('load', onPageLoad);
+      // Remove the event listener when component unmounts
+      return () => window.removeEventListener('load', onPageLoad);
+    }
+  }, []);
+
+
+  var graincount = 0;
     var fruitcount = 0;
     var vegcount = 0;
     var protcount = 0;
@@ -151,31 +162,25 @@ function App() {
 
     }
 
-    setFdata(data.filter(item => item && (!diabetes || (item.Diabetes_Score > 4)) 
+  const handleChange = () => {
+    const getFood = async () => {
+      calcLw();
+      calcFw();
+      calcTw();
+      if (bloating > 2 || pass_stool > 2 || ibs) {
+        setIbs(true);
+      }
+      const tempfd = await data.filter(item => item && (!diabetes || (item.Diabetes_Score > 4)) 
       && (!hbp || (item.Hypertension_Score > 4)) && (!hbc || (item.Hyperlipidimia_Score > 4))
       && (!obese || (item.Obesity_Score.includes("Y"))) 
-      && (!ibs || item.Irritable_Bowel_Syndrome_Score > 4) && rendFruit1(item)));
-    //setFinalData(filteredfood.filter(item => rendFruit1(item)));
-    const onPageLoad = () => {
-      setStarte(true);
-    }
-    if (document.readyState === 'complete') {
-      onPageLoad();
-    } else {
-      window.addEventListener('load', onPageLoad);
-      // Remove the event listener when component unmounts
-      return () => window.removeEventListener('load', onPageLoad);
-    }
-  }, []);
-
-  const handleChange = () => {
-    calcLw();
-    calcFw();
-    calcTw();
-    if (bloating > 2 || pass_stool > 2 || ibs) {
-      setIbs(true);
-    }
+      && (!ibs || item.Irritable_Bowel_Syndrome_Score > 4) && rendFruit1(item));
+      setFdata(tempfd);
     setQuestions(false);
+    };
+
+    getFood();
+
+    
 
   };
 
@@ -706,7 +711,7 @@ function App() {
                     ))}
                       {(filteredfood.map((row, index) => (
                         <div>
-                        <p><b>{row.Food_Name}:  </b>{row.Think_Well_Reason}</p>
+                        <p>{row.Food_Name}</p>
                         </div>
                         )))}
                     
