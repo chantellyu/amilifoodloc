@@ -2,6 +2,7 @@ import React, { useEffect, useState, useLayoutEffect } from 'react';
 import Papa from 'papaparse';
 import Data from './Food_Logic_Vitality.csv';
 import MAPData from './MB_food.csv';
+import './M1.css';
 
 function MBrender({type}) {
     const [mbdata, setMbdata] = useState([]);
@@ -31,10 +32,8 @@ function MBrender({type}) {
     return (
         <div>
             {(mbdata.filter(item => item.Type.includes(type)).map((row, index) => (
-               <tr key={index}>
-               <td>{row.Recommended_food_items}</td>
-               
-             </tr> 
+               <p>{row.Recommended_food_items}</p>
+             
             )))}
         </div>
         

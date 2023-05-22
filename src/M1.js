@@ -41,20 +41,6 @@ function M1({type, name, lwscore, twscore, fwscore, diabetes, hbp, hbc, obese, i
         setOpens(parsedDatao)
       }
       fetchoData();
-      var otemp = opens;
-      if (diabetes) {
-        otemp = otemp.filter(item => !item.Disease_group.includes("Diabetes"));
-      }
-      if (hbp) {
-        otemp = otemp.filter(item => !item.Disease_group.includes("Hypertension"));
-      }
-      if (hbc) {
-        otemp = otemp.filter(item => !item.Disease_group.includes("Dyslipidemia"));
-      }
-      if (ibs) {
-        otemp = otemp.filter(item => !item.Disease_group.includes("IBS"));
-      }
-      setOpens(otemp);
       var graincount = 0;
       var fruitcount = 0;
       var vegcount = 0;
@@ -101,7 +87,7 @@ function M1({type, name, lwscore, twscore, fwscore, diabetes, hbp, hbc, obese, i
                     <div className='results-card'>
                         <h2>{name},</h2>
                         <h3>Welcome to your results!</h3>
-                        <p>According to the survey, your scores are as follows:</p>
+                        <p>According to the survey, your scores are as follows, where a lower score is preferred:</p>
                         <p>Live Well Score: {lwscore}</p>
                         <p>Think Well Score: {twscore}</p>
                         <p>Feel Well Score: {fwscore}</p>
@@ -120,14 +106,16 @@ function M1({type, name, lwscore, twscore, fwscore, diabetes, hbp, hbc, obese, i
                         <h2>{name},</h2>
                         <h3>Welcome to your results!</h3>
                         <p>In accordance with the medical conditions indicated in your survey response, we would like to recommend the following foods: </p>
-                        {opens.filter(item => ((diabetes && item.Disease_group.includes("Diabetes")) ||
+                        {opens.filter(item => (item.Disease_group.includes("General") || ((diabetes && item.Disease_group.includes("Diabetes")) ||
                         (hbp && item.Disease_group.includes("Hypertension")) || 
                         (hbc && item.Disease_group.includes("Dyslipidemia")) ||
-                        (ibs && item.Disease_group.includes("IBS")))).map((row, index) => (
+                        (ibs && item.Disease_group.includes("IBS"))))).map((row, index) => (
                         <p>{row.Statements}</p>         
                     ))}
                       {(filteredfood.map((row, index) => (
-                        <p>{row.Food_Name}</p>
+                        <div>
+                        <p><b>{row.Food_Name}:  </b>{row.Think_Well_Reason}</p>
+                        </div>
                         )))}
                     
                         <button onClick={() => setShowRes(1)}>Previous</button>
