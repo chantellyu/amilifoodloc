@@ -10,6 +10,7 @@ import M5 from './M5.js';
 import Food1 from './Food1.js';
 import './App.css';
 import MBrender from './MBrender';
+import Datao from './open_s.csv';
 
 function App() {
   const [data, setData] = useState([]);
@@ -21,6 +22,9 @@ function App() {
   const [recommendedFoodItems, setRecommendedFoodItems] = useState([]);
   const [showQuestion, setShowQuestion] = useState(1);
   const [showRes, setShowRes] = useState(1);
+  const [filteredfood, setFdata] = useState([]);
+  const [starte, setStarte] = useState(false);
+  const [opens, setOpens] = useState([]);
 
   //personal info
   const current = new Date().toISOString().split("T")[0];
@@ -111,6 +115,56 @@ function App() {
         setRecommendedFoodItems(filteredFoodItems);
     }
     fetchMAPData();
+    const fetchoData = async () => {
+      const responseo = await fetch(Datao);
+      const readero = responseo.body.getReader();
+      const resulto = await readero.read();
+      const decodero = new TextDecoder("utf-8");
+      const csvDatao = decodero.decode(resulto.value);
+      const parsedDatao = Papa.parse(csvDatao, {
+        header: true, 
+        skipEmptyLines: true,
+      }).data;
+      setOpens(parsedDatao)
+    }
+    fetchoData();
+    var graincount = 0;
+    var fruitcount = 0;
+    var vegcount = 0;
+    var protcount = 0;
+    const rendFruit1 = (item) => {
+      if ((parseInt(item.Type) < 1) && graincount < 1) {
+              graincount += 1;
+              return (true);               
+      } else if (parseInt(item.Type) === 1 && fruitcount < 3) {
+
+              fruitcount += 1;
+              return (true);
+      } else if (parseInt(item.Type) === 2 && vegcount < 3) {
+              vegcount += 1;
+              return (true);
+      } else if (parseInt(item.Type) === 3 && protcount < 3) {
+              protcount += 1;
+              return (true);
+      } else { return false;}
+
+    }
+
+    setFdata(data.filter(item => item && (!diabetes || (item.Diabetes_Score > 4)) 
+      && (!hbp || (item.Hypertension_Score > 4)) && (!hbc || (item.Hyperlipidimia_Score > 4))
+      && (!obese || (item.Obesity_Score.includes("Y"))) 
+      && (!ibs || item.Irritable_Bowel_Syndrome_Score > 4)));
+    //setFinalData(filteredfood.filter(item => rendFruit1(item)));
+    const onPageLoad = () => {
+      setStarte(true);
+    }
+    if (document.readyState === 'complete') {
+      onPageLoad();
+    } else {
+      window.addEventListener('load', onPageLoad);
+      // Remove the event listener when component unmounts
+      return () => window.removeEventListener('load', onPageLoad);
+    }
   }, []);
 
   const handleChange = () => {
@@ -606,25 +660,52 @@ function App() {
 
       {data.length && !questions ? (
         <div className='report'>
-          <div className='result-card'>
-            {parseFloat(twscore) > 12 && lwscore>12 && parseFloat(fwscore)>12? 
-            (<div><M1 type={"Two"} name={name} lwscore={lwscore} twscore={twscore} fwscore={fwscore} diabetes={diabetes} hbp={hbp} hbc={hbc} obese={obese} ibs={ibs}
-            allergies={{nuts: nut_allergy, shellfish: shellfish_allergy, eggs: egg_allergy, 
-              milk: milk_allergy, grain: grain_allergy, soy: soy_allergy, fish: fish_allergy}} /></div>): 
+
+            {showRes === 1 ? (
+                    <div className='result-card'>
+                        <h2>{name},</h2>
+                        <h3>Welcome to your results!</h3>
+                        <p>According to the survey, your scores are as follows, where a lower score is preferred:</p>
+                        <p>Live Well Score: {lwscore}</p>
+                        <p>Think Well Score: {twscore}</p>
+                        <p>Feel Well Score: {fwscore}</p>
+
+                        <h4>We recommend the following foods according to your microbiome type:</h4>
+                        {parseFloat(twscore) > 12 && lwscore>12 && parseFloat(fwscore)>12? 
+            (<div><MBrender type={"Two"} /></div>): 
             (parseFloat(twscore) <= 12 && lwscore <= 12 && parseFloat(fwscore) <= 12 ? 
-              (<div><M1 type={"One"} name={name} lwscore={lwscore} twscore={twscore} fwscore={fwscore} diabetes={diabetes} hbp={hbp} hbc={hbc} obese={obese} ibs={ibs}
-                allergies={{nuts: nut_allergy, shellfish: shellfish_allergy, eggs: egg_allergy, 
-                  milk: milk_allergy, grain: grain_allergy, soy: soy_allergy, fish: fish_allergy}} /></div>) : 
-            (parseFloat(twscore) <= 12 ? (parseFloat(fwscore)>12 ? (<div><M1 type={"Five"} name={name} lwscore={lwscore} twscore={twscore} fwscore={fwscore} diabetes={diabetes} hbp={hbp} hbc={hbc} obese={obese} ibs={ibs}
-            allergies={{nuts: nut_allergy, shellfish: shellfish_allergy, eggs: egg_allergy, 
-              milk: milk_allergy, grain: grain_allergy, soy: soy_allergy, fish: fish_allergy}} /></div>) : 
-              (<div><M1 type={"Four"} name={name} lwscore={lwscore} twscore={twscore} fwscore={fwscore} diabetes={diabetes} hbp={hbp} hbc={hbc} obese={obese} ibs={ibs}
-              allergies={{nuts: nut_allergy, shellfish: shellfish_allergy, eggs: egg_allergy, 
-                milk: milk_allergy, grain: grain_allergy, soy: soy_allergy, fish: fish_allergy}} /></div>)) :
-                (<div><M1 type={"Three"} name={name} lwscore={lwscore} twscore={twscore} fwscore={fwscore} diabetes={diabetes} hbp={hbp} hbc={hbc} obese={obese} ibs={ibs}
-                allergies={{nuts: nut_allergy, shellfish: shellfish_allergy, eggs: egg_allergy, 
-                  milk: milk_allergy, grain: grain_allergy, soy: soy_allergy, fish: fish_allergy}} /></div>)))}
-            </div>
+              (<div><MBrender type={"One"} /></div>) : 
+            (parseFloat(twscore) <= 12 ? (parseFloat(fwscore)>12 ? (<div><MBrender type={"Five"} /></div>) : 
+              (<div><MBrender type={"Four"} /></div>)) :
+                (<div><MBrender type={"Three"}  /></div>)))}
+                        <button onClick={() => setShowRes(2)}>Next</button>
+                    
+                    </div> 
+                ) : null
+            }
+
+              {starte && showRes === 2 ? (
+                    <div className='result-card'>
+                        <h2>{name},</h2>
+                        <h3>Welcome to your results!</h3>
+                        <p>In accordance with the medical conditions indicated in your survey response, we would like to recommend the following foods: </p>
+                        {opens.filter(item => (item.Disease_group.includes("General") || ((diabetes && item.Disease_group.includes("Diabetes")) ||
+                        (hbp && item.Disease_group.includes("Hypertension")) || 
+                        (hbc && item.Disease_group.includes("Dyslipidemia")) ||
+                        (ibs && item.Disease_group.includes("IBS"))))).map((row, index) => (
+                        <p>{row.Statements}</p>         
+                    ))}
+                      {(filteredfood.map((row, index) => (
+                        <div>
+                        <p><b>{row.Food_Name}:  </b>{row.Think_Well_Reason}</p>
+                        </div>
+                        )))}
+                    
+                        <button onClick={() => setShowRes(1)}>Previous</button>
+                    
+                    </div> 
+                ) : null
+            }
         </div>
       ) : null}
     </div>

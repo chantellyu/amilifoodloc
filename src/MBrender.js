@@ -32,7 +32,7 @@ function MBrender({type}) {
     return (
         <div>
             {(mbdata.filter(item => item.Type.includes(type)).map((row, index) => (
-               <p>{row.Recommended_food_items}</p>
+               <div><p>{row.Recommended_food_items}</p></div>
              
             )))}
         </div>

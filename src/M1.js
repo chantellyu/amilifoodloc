@@ -8,7 +8,6 @@ import './M1.css';
 function M1({type, name, lwscore, twscore, fwscore, diabetes, hbp, hbc, obese, ibs, allergies}) {
     const [filteredfood, setFdata] = useState([]);
     const [data, setData] = useState([]);
-    const [finaldata, setFinalData] = useState([]);
     const [starte, setStarte] = useState(false);
     const [opens, setOpens] = useState([]);
     const [showRes, setShowRes] = useState(1);
