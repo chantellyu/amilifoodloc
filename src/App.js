@@ -25,6 +25,7 @@ function App() {
   const [filteredfood, setFdata] = useState([]);
   const [starte, setStarte] = useState(false);
   const [opens, setOpens] = useState([]);
+  const [temd, setTemd] = useState([]);
 
   //personal info
   const current = new Date().toISOString().split("T")[0];
@@ -153,7 +154,7 @@ function App() {
     setFdata(data.filter(item => item && (!diabetes || (item.Diabetes_Score > 4)) 
       && (!hbp || (item.Hypertension_Score > 4)) && (!hbc || (item.Hyperlipidimia_Score > 4))
       && (!obese || (item.Obesity_Score.includes("Y"))) 
-      && (!ibs || item.Irritable_Bowel_Syndrome_Score > 4)));
+      && (!ibs || item.Irritable_Bowel_Syndrome_Score > 4) && rendFruit1(item)));
     //setFinalData(filteredfood.filter(item => rendFruit1(item)));
     const onPageLoad = () => {
       setStarte(true);
@@ -377,6 +378,14 @@ function App() {
                 <input type='text' onChange={(e) => setEthnicity(e.target.value)}/>
               </div> ) : null}
           </div>
+          <div className="height">
+              <label>Please enter your height in centimeters (cm), to the nearest whole number. (eg. 165)</label>
+              <p><input type='number' value={height} onChange={(e) => setHeight(e.target.value)}/></p>
+            </div>
+            <div className="weight">
+              <label>Please enter your weight in kilograms (kg), to the nearest whole number. (eg. 65)</label>
+              <p><input type='number' value={weight} onChange={(e) => setWeight(e.target.value)}/></p>
+            </div>
           <div className="family_history">
               <h3>This section helps us understand your medical history and gut-related issues. Understanding this allows us to determine the help you need most!</h3>
               <label><b>Q5.</b>   Have <b>you or any of your immediate family members</b> (parents, siblings, or children) recorded the following medical conditions?</label>
@@ -684,7 +693,7 @@ function App() {
                 ) : null
             }
 
-              {starte && showRes === 2 ? (
+              {starte ? (showRes === 2 ? (
                     <div className='result-card'>
                         <h2>{name},</h2>
                         <h3>Welcome to your results!</h3>
@@ -704,7 +713,7 @@ function App() {
                         <button onClick={() => setShowRes(1)}>Previous</button>
                     
                     </div> 
-                ) : null
+                ) : null) : <h1>loading</h1>
             }
         </div>
       ) : null}
