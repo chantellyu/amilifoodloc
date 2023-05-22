@@ -20,6 +20,7 @@ function App() {
   const [questions, setQuestions] = useState(true);
   const [recommendedFoodItems, setRecommendedFoodItems] = useState([]);
   const [showQuestion, setShowQuestion] = useState(1);
+  const [showRes, setShowRes] = useState(1);
 
   //personal info
   const current = new Date().toISOString().split("T")[0];
@@ -116,6 +117,9 @@ function App() {
     calcLw();
     calcFw();
     calcTw();
+    if (bloating > 2 || pass_stool > 2 || ibs) {
+      setIbs(true);
+    }
     setQuestions(false);
 
   };
@@ -590,21 +594,10 @@ function App() {
             </div>
             <div className='buttons'>
               <button onClick={() => setShowQuestion(2)}>Previous</button>
-              <button onClick={() => setShowQuestion(4)}>Next</button>
-            </div>
-          </div>
-        ) : null
-        }
-
-        {showQuestion === 4 ? (
-          <div className='question-card'>
-            
-            <div className='buttons'>
-              <button onClick={() => setShowQuestion(3)}>Previous</button>
               <button onClick={() => handleChange()}>Submit Survey</button>
             </div>
           </div>
-          ) : null
+        ) : null
         }
 
         </div>
@@ -612,28 +605,27 @@ function App() {
 
 
       {data.length && !questions ? (
-        <table className='table'>
-          <thead>
-            <tr>
-              <th>Recommended Food Items</th>
-              <th>Recommended Food Ingredients</th>
-            </tr>
-          </thead>
-          <tbody>
+        <div className='report'>
+          <div className='result-card'>
             {parseFloat(twscore) > 12 && lwscore>12 && parseFloat(fwscore)>12? 
-            (<div><M2 /> <MBrender type={"Two"} /></div>): 
+            (<div><M1 type={"Two"} name={name} lwscore={lwscore} twscore={twscore} fwscore={fwscore} diabetes={diabetes} hbp={hbp} hbc={hbc} obese={obese} ibs={ibs}
+            allergies={{nuts: nut_allergy, shellfish: shellfish_allergy, eggs: egg_allergy, 
+              milk: milk_allergy, grain: grain_allergy, soy: soy_allergy, fish: fish_allergy}} /></div>): 
             (parseFloat(twscore) <= 12 && lwscore <= 12 && parseFloat(fwscore) <= 12 ? 
-              <M1 diabetes={diabetes} hbp={hbp} hbc={hbc} obese={obese} 
+              (<div><M1 type={"One"} name={name} lwscore={lwscore} twscore={twscore} fwscore={fwscore} diabetes={diabetes} hbp={hbp} hbc={hbc} obese={obese} ibs={ibs}
                 allergies={{nuts: nut_allergy, shellfish: shellfish_allergy, eggs: egg_allergy, 
-                  milk: milk_allergy, grain: grain_allergy, soy: soy_allergy, fish: fish_allergy}} /> : 
-            (parseFloat(twscore) <= 12 ? (parseFloat(fwscore)>12 ? <M5 /> : <M4 />) :
-            <M3 />))}
-          <Food1 diabetes={diabetes} hbp={hbp} hbc={hbc} obese={obese} 
+                  milk: milk_allergy, grain: grain_allergy, soy: soy_allergy, fish: fish_allergy}} /></div>) : 
+            (parseFloat(twscore) <= 12 ? (parseFloat(fwscore)>12 ? (<div><M1 type={"Five"} name={name} lwscore={lwscore} twscore={twscore} fwscore={fwscore} diabetes={diabetes} hbp={hbp} hbc={hbc} obese={obese} ibs={ibs}
+            allergies={{nuts: nut_allergy, shellfish: shellfish_allergy, eggs: egg_allergy, 
+              milk: milk_allergy, grain: grain_allergy, soy: soy_allergy, fish: fish_allergy}} /></div>) : 
+              (<div><M1 type={"Four"} name={name} lwscore={lwscore} twscore={twscore} fwscore={fwscore} diabetes={diabetes} hbp={hbp} hbc={hbc} obese={obese} ibs={ibs}
+              allergies={{nuts: nut_allergy, shellfish: shellfish_allergy, eggs: egg_allergy, 
+                milk: milk_allergy, grain: grain_allergy, soy: soy_allergy, fish: fish_allergy}} /></div>)) :
+                (<div><M1 type={"Three"} name={name} lwscore={lwscore} twscore={twscore} fwscore={fwscore} diabetes={diabetes} hbp={hbp} hbc={hbc} obese={obese} ibs={ibs}
                 allergies={{nuts: nut_allergy, shellfish: shellfish_allergy, eggs: egg_allergy, 
-                  milk: milk_allergy, grain: grain_allergy, soy: soy_allergy, fish: fish_allergy}} />
-          <MBrender type={"Two"} />
-          </tbody>
-        </table>
+                  milk: milk_allergy, grain: grain_allergy, soy: soy_allergy, fish: fish_allergy}} /></div>)))}
+            </div>
+        </div>
       ) : null}
     </div>
   );

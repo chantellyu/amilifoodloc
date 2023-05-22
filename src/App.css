@@ -86,7 +86,7 @@ th, td {
   padding: 10%;
 }
 
-.question-card {
+.question-card, .result-card {
   /* Center the div  */
   margin: 0 auto;
 

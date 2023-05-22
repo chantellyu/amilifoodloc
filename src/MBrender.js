@@ -6,6 +6,7 @@ import MAPData from './MB_food.csv';
 function MBrender({type}) {
     const [mbdata, setMbdata] = useState([]);
     const [mbfood, setMbfood] = useState([]);
+    const [filtered, setFiltered] = useState([]);
 
 
     useEffect(() => {
@@ -22,12 +23,13 @@ function MBrender({type}) {
             setMbdata(parsedDatamb);
           }
           fetchmbData();
-          setMbfood(mbdata.filter(item => item && (parseInt(item.Type) === 1)));
+          setMbfood(mbdata.filter(item => item && item.Type.includes(type)));
+          setFiltered(mbfood.map(item => (item.Recommended_food_items.split("\n"))));
+          console.log(filtered);
     }, []);
 
     return (
         <div>
-            <h2>no limiting</h2>
             {(mbdata.filter(item => item.Type.includes(type)).map((row, index) => (
                <tr key={index}>
                <td>{row.Recommended_food_items}</td>
