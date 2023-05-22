@@ -2,7 +2,7 @@ import React, { useEffect, useState, useLayoutEffect } from 'react';
 import Papa from 'papaparse';
 import Data from './Food_Logic_Vitality.csv';
 import MAPData from './MB_food.csv';
-import './M1.css'
+import './M1.css';
 
 function Food1({diabetes, hbp, hbc, obese, allergies}) {
     const [mbdata, setMbdata] = useState([]);
@@ -11,10 +11,7 @@ function Food1({diabetes, hbp, hbc, obese, allergies}) {
     const [finaldata, setFinalData] = useState([]);
     const [starte, setStarte] = useState(false);
     const [mbfood, setMbfood] = useState([]);
-    var graincount = 0;
-    var fruitcount = 0;
-    var vegcount = 0;
-    var protcount = 0;
+
 
     
 
@@ -32,20 +29,10 @@ function Food1({diabetes, hbp, hbc, obese, allergies}) {
         setData(parsedData)
       }
       fetchData();
-      const fetchmbData = async () => {
-        const responsemb = await fetch(MAPData);
-        const readermb = responsemb.body.getReader();
-        const resultmb = await readermb.read();
-        const decodermb = new TextDecoder("utf-8");
-        const csvDatamb = decodermb.decode(resultmb.value);
-        const parsedDatamb = Papa.parse(csvDatamb, {
-          header: true, 
-          skipEmptyLines: true,
-        }).data;
-        setMbdata(parsedDatamb);
-      }
-      fetchmbData();
-      setMbfood(mbdata.filter(item => item && (parseInt(item.Type) === 1)));
+      var graincount = 0;
+      var fruitcount = 0;
+      var vegcount = 0;
+      var protcount = 0;
       const rendFruit1 = (item) => {
         if ((parseInt(item.Type) < 1) && graincount < 1) {
                 graincount += 1;
@@ -65,8 +52,8 @@ function Food1({diabetes, hbp, hbc, obese, allergies}) {
       }
       setFdata(data.filter(item => item && (!diabetes || (item.Diabetes_Score > 4)) 
         && (!hbp || (item.Hypertension_Score > 4)) && (!hbc || (item.Hyperlipidimia_Score > 4))
-        && (!obese || (item.Obesity_Score > 4))));
-      setFinalData(filteredfood.filter(item => rendFruit1(item)));
+        && (!obese || (item.Obesity_Score > 4)) && rendFruit1(item)));
+      //setFinalData(filteredfood.filter(item => rendFruit1(item)));
       const onPageLoad = () => {
         setStarte(true);
       }
@@ -81,7 +68,7 @@ function Food1({diabetes, hbp, hbc, obese, allergies}) {
     }, [])
     return (
         <div className='M1d'>
-            {starte ? (finaldata.map((row, index) => (
+            {starte ? (filteredfood.map((row, index) => (
                <tr key={index}>
                <td>{row.Food_Name}</td>
                <td>{row.Diabetes_Score}</td>
@@ -91,13 +78,7 @@ function Food1({diabetes, hbp, hbc, obese, allergies}) {
              </tr> 
             ))) : null}
 
-            <h2>no limiting</h2>
-            {(mbfood.map((row, index) => (
-               <tr key={index}>
-               <td>{row.Recommended_food_items}</td>
-               
-             </tr> 
-            )))}
+            
 
             
 
