@@ -1,6 +1,7 @@
 .M1d div {
     white-space: pre-wrap;
     text-align: center;
+    overflow: 'auto';
 }
 
 td {

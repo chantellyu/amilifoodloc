@@ -7,6 +7,7 @@ import M2 from './M2.js';
 import M3 from './M3.js';
 import M4 from './M4.js';
 import M5 from './M5.js';
+import Food1 from './Food1.js';
 import './App.css';
 
 function App() {
@@ -26,10 +27,18 @@ function App() {
   const [ethnicity, setEthnicity] = useState("");
   const [height, setHeight] = useState(0);
   const [weight, setWeight] = useState(0);
-  const [diabetes, setDiabetes] = useState(0);
-  const [hbp, setHbp] = useState(0);
-  const [hbc, setHbc] = useState(0);
-  const [nut_allerrgy, setNutAllergy] = useState(false);
+  const [diabetes, setDiabetes] = useState(false);
+  const [hbp, setHbp] = useState(false);
+  const [hbc, setHbc] = useState(false);
+  const [ibs, setIbs] = useState(false);
+  const [nut_allergy, setNutAllergy] = useState(false);
+  const [shellfish_allergy, setShellfishAllergy] = useState(false);
+  const [egg_allergy, setEggAllergy] = useState(false);
+  const [milk_allergy, setMilkAllergy] = useState(false);
+  const [grain_allergy, setGrainAllergy] = useState(false);
+  const [soy_allergy, setSoyAllergy] = useState(false);
+  const [fish_allergy, setFishAllergy] = useState(false);
+
   const [obese, setObese] = useState(false);
   
 
@@ -269,134 +278,83 @@ function App() {
     <div className='App'>
       {questions ? (
       <div className='Survey'>
-        { 
-          showQuestion === 1 ? (
-            <div className='question-card'>
-        <h3>First, help us get to know you better. Providing demographic information helps us give more targeted recommendations based on your answers.</h3>
-        <div className='Enter_Name'>
-          <label>
-            Please enter your name:
-          <input type='text' value={name} onChange={(e) => setName(e.target.value)} />
-          </label>
-        </div>
-        <div className='Gender'>
-          <label>What is your gender?</label>
-          <form>
-            <select value={gender} onChange={(e) => setGender(e.target.value)}>
-              <option value="Female">Female</option>
-              <option value="Male">Male</option>
-              <option value="Prefer not to say">Prefer not to say</option>
-            </select>
-          </form>
-        </div>
-        <button onClick={() => setShowQuestion(2)}>Next</button>
-        </div>
-          )
-           : null
-        }
-        {showQuestion === 2 ? (
-          <div className='question-card'>
-            <div className='DOB'>
-              <label>What is your date of birth?</label>
-              <p><input type='date' max={current} /></p>
-            </div>
-            <div className='Ethnicity'>
-              <label>What is your ethnicity?</label>
-              <form>
-                <select value={ethnicity} onChange={(e) => setEthnicity(e.target.value)}>
-                  <option value="Chinese">Chinese</option>
-                  <option value="Indian">Indian</option>
-                  <option value="Malay">Malay</option>
-                  <option value="Others">Others</option>
+        {showQuestion === 1 ? (
+        <div className='question-card'>
+          <h2>Welcome to AMILI's food recommendation survey!</h2>
+          <h3>Based off the information you provide here, we will recommend certain foods accordingly. We do not store or collect the information provided here.</h3>
+          <h3>This survey consists of 12 questions targeting various aspects of your lifestyle.</h3>
+          <h3>First, help us get to know you better. Providing demographic information helps us give more targeted recommendations based on your answers.</h3>
+          <div className='Enter_Name'>
+            <label><b>Q1.</b>   Please enter your name:</label>
+            <input type='text' value={name} onChange={(e) => setName(e.target.value)} />
+          </div>
+          <div className='Gender'>
+            <label><b>Q2.</b>   What is your gender?</label>
+            <form>
+              <select value={gender} onChange={(e) => setGender(e.target.value)}>
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+                <option value="Prefer not to say">Prefer not to say</option>
+              </select>
+            </form>
+          </div>
+          <div className='DOB'>
+            <label><b>Q3.</b>   What is your date of birth?</label>
+            <p><input type='date' max={current} /></p>
+          </div>
+          <div className='Ethnicity'>
+            <label><b>Q4.</b>   What is your ethnicity?</label>
+            <form>
+              <select value={ethnicity} onChange={(e) => setEthnicity(e.target.value)}>
+                <option value="Chinese">Chinese</option>
+                <option value="Indian">Indian</option>
+                <option value="Malay">Malay</option>
+                <option value="Others">Others</option>
                 </select>
-              </form>
-              {ethnicity==="Others" ? (
+            </form>
+            {ethnicity==="Others" ? (
               <div>
                 <label>Please enter your ethnicity: </label>
                 <input type='text' onChange={(e) => setEthnicity(e.target.value)}/>
               </div> ) : null}
-            </div>
-            <div className='buttons'>
-              <button onClick={() => setShowQuestion(1)}>Previous</button>
-              <button onClick={() => setShowQuestion(3)}>Next</button>
-            </div>
           </div>
-          ) : null
-        }
-
-        {showQuestion === 3 ? (
-          <div className='question-card'>
-            <div className="height">
-              <label>Please enter your height in centimeters (cm), to the nearest whole number. (eg. 165)</label>
-              <p><input type='number' value={height} onChange={(e) => setHeight(e.target.value)}/></p>
-            </div>
-            <div className="weight">
-              <label>Please enter your weight in kilograms (kg), to the nearest whole number. (eg. 65)</label>
-              <p><input type='number' value={weight} onChange={(e) => setWeight(e.target.value)}/></p>
-            </div>
-            <div className='buttons'>
-              <button onClick={() => setShowQuestion(2)}>Previous</button>
-              <button onClick={() => setShowQuestion(4)}>Next</button>
-            </div>
-          </div>
-        ) : null
-        }
-
-        {showQuestion === 4 ? (
-          <div className='question-card'>
-            <div className="family_history">
+          <div className="family_history">
               <h3>This section helps us understand your medical history and gut-related issues. Understanding this allows us to determine the help you need most!</h3>
-              <label>Have <b>you or any of your immediate family members</b> (parents, siblings, or children) recorded the following medical conditions?</label>
+              <label><b>Q5.</b>   Have <b>you or any of your immediate family members</b> (parents, siblings, or children) recorded the following medical conditions?</label>
               <p><input type="checkbox" checked={cd_history_checked} onChange={() => setcdChecked(!cd_history_checked)} />Cardiovascular Diseases</p>
               <p><input type="checkbox" checked={cc_history_checked} onChange={() => setccChecked(!cc_history_checked)} />Colon Cancer / Colorectal cancer</p>
               <p><input type="checkbox" checked={gerd_history_checked} onChange={() => setgerdChecked(!gerd_history_checked)} />Gastroesophageal Reflux Disease (GERD)</p>
               <p><input type="checkbox" checked={ibd_history_checked} onChange={() => setibdChecked(!ibd_history_checked)} />Inflammatory Bowel Disease (IBD)</p>
               <p><input type="checkbox" checked={nash_history_checked} onChange={() => setnashChecked(!nash_history_checked)} />Nonalcoholic Steatohepatitis (NASH)</p>
               <p><input type="checkbox" checked={t2dm_history_checked} onChange={() => sett2dmChecked(!t2dm_history_checked)} />Type 2 Diabetes Mellitus (T2DM)</p>
-            </div>
-            <div className='buttons'>
-              <button onClick={() => setShowQuestion(3)}>Previous</button>
-              <button onClick={() => setShowQuestion(5)}>Next</button>
-            </div>
           </div>
-          ) : null
-        }
-
-        {showQuestion === 5 ? (
-          <div className='question-card'>
-            <div className="chronic_diseases">
-              <label>Have <b>you</b> recorded the following medical conditions?</label>
+          <div className="chronic_diseases">
+              <label><b>Q6.</b>   Have <b>you</b> recorded the following medical conditions?</label>
               <p><input type="checkbox" checked={diabetes} onChange={() => setDiabetes(!diabetes)} />Diabetes</p>
               <p><input type="checkbox" checked={hbp} onChange={() => setHbp(!hbp)} />High Blood Pressure</p>
               <p><input type="checkbox" checked={hbc} onChange={() => setHbc(!hbc)} />High Blood Cholesterol</p>
-            </div>
-            <div className='buttons'>
-              <button onClick={() => setShowQuestion(4)}>Previous</button>
-              <button onClick={() => setShowQuestion(6)}>Next</button>
-            </div>
+              <p><input type="checkbox" checked={ibs} onChange={() => setIbs(!ibs)}  />Irritable Bowel Syndrome</p>
           </div>
-          ) : null
-        }
-
-        {showQuestion === 6 ? (
-          <div className='question-card'>
-            <div className="allergies">
-              <label>Do you suffer from any of the following allergies?</label>
-              <p><input type="checkbox" checked={nut_allerrgy} onChange={() => setNutAllergy(!nut_allerrgy)} />Nuts</p>
-            </div>
-            <div className='buttons'>
-              <button onClick={() => setShowQuestion(5)}>Previous</button>
-              <button onClick={() => setShowQuestion(7)}>Next</button>
-            </div>
+          <div className="allergies">
+            <label><b>Q7.</b>   Are you allergic to any of the following foods?</label>
+            <p><input type="checkbox" checked={nut_allergy} onChange={() => setNutAllergy(!nut_allergy)} />Nuts</p>
+            <p><input type="checkbox" checked={shellfish_allergy} onChange={() => setShellfishAllergy(!shellfish_allergy)} />Shellfish</p>
+            <p><input type="checkbox" checked={egg_allergy} onChange={() => setEggAllergy(!egg_allergy)} />Eggs</p>
+            <p><input type="checkbox" checked={milk_allergy} onChange={() => setMilkAllergy(!milk_allergy)} />Cow's milk</p>
+            <p><input type="checkbox" checked={grain_allergy} onChange={() => setGrainAllergy(!grain_allergy)} />Grains (wheat, oat, barley etc)</p>
+            <p><input type="checkbox" checked={soy_allergy} onChange={() => setSoyAllergy(!soy_allergy)} />Soy</p>
+            <p><input type="checkbox" checked={fish_allergy} onChange={() => setFishAllergy(!fish_allergy)} />Shellfish</p>
           </div>
-          ) : null
+          <button onClick={() => setShowQuestion(2)}>Next</button>
+        </div>
+          )
+           : null
         }
-        
-        {showQuestion === 7 ? (
+        {showQuestion === 2 ? (
           <div className='question-card'>
             <div className="stomach_history">
-              <h4>In the past one week, how often did you experience the following?</h4>
-              <label>Acid Reflux (when some of the acidic stomach contents go back up into the back of your throat)</label>
+              <h4><b>Q8.</b>   In the past one week, how often did you experience the following?</h4>
+              <label><b>a)</b>   Acid Reflux (when some of the acidic stomach contents go back up into the back of your throat)</label>
               <form>
                 <select value={acid_reflux} onChange={(e) => setAcidReflux(e.target.value)}>
                   <option value="0">Never</option>
@@ -406,7 +364,7 @@ function App() {
                   <option value="5">More than 5 times</option>
                 </select>
               </form>
-              <label>Bloating (Abdominal Distension)</label>
+              <label><b>b)</b>   Bloating (Abdominal Distension)</label>
               <form>
                 <select value={bloating} onChange={(e) => setBloating(e.target.value)}>
                   <option value="0">Never</option>
@@ -416,7 +374,7 @@ function App() {
                   <option value="5">More than 5 times</option>
                 </select>
               </form>
-              <label>Early satiety (when you feel full after a few bites of food or before you finish a normal-sized meal)</label>
+              <label><b>c)</b>   Early satiety (when you feel full after a few bites of food or before you finish a normal-sized meal)</label>
               <form>
                 <select value={early_satiety} onChange={(e) => setEarlySatiety(e.target.value)}>
                   <option value="0">Never</option>
@@ -426,7 +384,7 @@ function App() {
                   <option value="5">More than 5 times</option>
                 </select>
               </form>
-              <label>Gastric pain (pain in the upper part of your abdomen, below your rib cage)</label>
+              <label><b>d)</b>   Gastric pain (pain in the upper part of your abdomen, below your rib cage)</label>
               <form>
                 <select value={gastric_pain} onChange={(e) => setGastricPain(e.target.value)}>
                   <option value="0">Never</option>
@@ -436,7 +394,7 @@ function App() {
                   <option value="5">More than 5 times</option>
                 </select>
               </form>
-              <label>Regurgitation (when food, liquid, or stomach acid flows back up from the stomach and into the mouth)</label>
+              <label><b>e)</b>   Regurgitation (when food, liquid, or stomach acid flows back up from the stomach and into the mouth)</label>
               <form>
                 <select value={regurgitation} onChange={(e) => setRegurgitation(e.target.value)}>
                   <option value="0">Never</option>
@@ -446,7 +404,7 @@ function App() {
                   <option value="5">More than 5 times</option>
                 </select>
               </form>
-              <label>Urge to pass stool immediately after eating</label>
+              <label><b>f)</b>   Urge to pass stool immediately after eating</label>
               <form>
                 <select value={pass_stool} onChange={(e) => setPassStool(e.target.value)}>
                   <option value="0">Never</option>
@@ -457,20 +415,10 @@ function App() {
                 </select>
               </form>
             </div>  
-            <div className='buttons'>
-              <button onClick={() => setShowQuestion(6)}>Previous</button>
-              <button onClick={() => setShowQuestion(8)}>Next</button>
-            </div>
-          </div>
-          ) : null
-        }
-
-        {showQuestion === 8 ? (
-          <div className='question-card'>
             <div className='diet'>
               <h3>This section gives us a snapshot of your diet and helps us assess the links between your lifestyle and your gut health. This then improves our food recommendations for you.</h3>
-              <h4>In the past week, how many servings of the following did you consume? (1 serving is roughly the size of your closed fist)</h4>
-              <label>Fruits</label>
+              <h4><b>Q9.</b>   In the past week, how many servings of the following did you consume? (1 serving is roughly the size of your closed fist)</h4>
+              <label><b>a)</b>   Fruits</label>
               <form>
                 <select value={fruit} onChange={(e) => setFruit(e.target.value)}>
                   <option value="0">0 servings</option>
@@ -479,7 +427,7 @@ function App() {
                   <option value="14">14 or more servings</option>
                 </select>
               </form>
-              <label>Green leafy vegetables (e.g. spinach)</label>
+              <label><b>b)</b>   Green leafy vegetables (e.g. spinach)</label>
               <form>
                 <select value={green_veg} onChange={(e) => setGreenVeg(e.target.value)}>
                   <option value="0">0 servings</option>
@@ -489,19 +437,9 @@ function App() {
                 </select>
               </form>
             </div>
-            <div className='buttons'>
-              <button onClick={() => setShowQuestion(7)}>Previous</button>
-              <button onClick={() => setShowQuestion(9)}>Next</button>
-            </div>
-          </div>
-          ) : null
-        }
-
-        {showQuestion === 9 ? (
-          <div className='question-card'>
             <div className='diet-2'>
-              <h4>In the past week, how often did you consume of the following?</h4>
-              <label>Alcoholic drinks</label>
+              <h4><b>Q10.</b>   In the past week, how often did you consume of the following?</h4>
+              <label><b>a)</b>   Alcoholic drinks</label>
               <form>
                 <select value={alcohol} onChange={(e) => setAlcohol(e.target.value)}>
                   <option value="0">Never</option>
@@ -511,7 +449,7 @@ function App() {
                   <option value="5">More than 5 times</option>
                 </select>
               </form>
-              <label>Fatty fish (e.g. salmon, mackerel)</label>
+              <label><b>b)</b>   Fatty fish (e.g. salmon, mackerel)</label>
               <form>
                 <select value={fish} onChange={(e) => setFish(e.target.value)}>
                   <option value="0">Never</option>
@@ -521,7 +459,7 @@ function App() {
                   <option value="5">More than 5 times</option>
                 </select>
               </form>
-              <label>Nut and legumes</label>
+              <label><b>c)</b>   Nut and legumes</label>
               <form>
                 <select value={nut_legumes} onChange={(e) => setNutLegumes(e.target.value)}>
                   <option value="0">Never</option>
@@ -531,7 +469,7 @@ function App() {
                   <option value="5">More than 5 times</option>
                 </select>
               </form>
-              <label>Red meat</label>
+              <label><b>d)</b>   Red meat</label>
               <form>
                 <select value={red_meat} onChange={(e) => setRedMeat(e.target.value)}>
                   <option value="0">Never</option>
@@ -541,7 +479,7 @@ function App() {
                   <option value="5">More than 5 times</option>
                 </select>
               </form>
-              <label>Whole grains (e.g. brown rice, whole wheat)</label>
+              <label><b>e)</b>   Whole grains (e.g. brown rice, whole wheat)</label>
               <form>
                 <select value={whole_grains} onChange={(e) => setWholeGrains(e.target.value)}>
                   <option value="0">Never</option>
@@ -553,18 +491,19 @@ function App() {
               </form>
             </div>
             <div className='buttons'>
-            <button onClick={() => setShowQuestion(8)}>Previous</button>
-            <button onClick={() => setShowQuestion(10)}>Next</button>
+              <button onClick={() => setShowQuestion(1)}>Previous</button>
+              <button onClick={() => setShowQuestion(3)}>Next</button>
             </div>
           </div>
-        ) : null}
+          ) : null
+        }
 
-        {showQuestion === 10 ? (
+        {showQuestion === 3 ? (
           <div className='question-card'>
             <div className='mental'>
               <h3>Almost there! This last section helps us understand your general well-being. Here, we aim to draw more linkages to your gut microbiome and your mental and physical health.</h3>
-              <h4>In the past one week, how often did you experience the following?</h4>
-              <label>Difficulty remembering / recalling things</label>
+              <h4><b>Q11.</b>   In the past one week, how often did you experience the following?</h4>
+              <label><b>a)</b>   Difficulty remembering / recalling things</label>
               <form>
                 <select value={remembering} onChange={(e) => setRemembering(e.target.value)}>
                   <option value="0">Never</option>
@@ -574,7 +513,7 @@ function App() {
                   <option value="5">More than 5 times</option>
                 </select>
               </form>
-              <label>Feeling down or depressed</label>
+              <label><b>b)</b>   Feeling down or depressed</label>
               <form>
                 <select value={down} onChange={(e) => setDown(e.target.value)}>
                   <option value="0">Never</option>
@@ -584,7 +523,7 @@ function App() {
                   <option value="5">More than 5 times</option>
                 </select>
               </form>
-              <label>Feeling anxious or stressed</label>
+              <label><b>c)</b>   Feeling anxious or stressed</label>
               <form>
                 <select value={anxious} onChange={(e) => setAnxious(e.target.value)}>
                   <option value="0">Never</option>
@@ -595,19 +534,9 @@ function App() {
                 </select>
               </form>
             </div>
-            <div className='buttons'>
-            <button onClick={() => setShowQuestion(9)}>Previous</button>
-            <button onClick={() => setShowQuestion(11)}>Next</button>
-            </div>
-          </div>
-          ) : null
-        }
-        
-        {showQuestion === 11 ? (
-          <div className='question-card'>
             <div className='activity'>
-              <h4>In the past one week, how often did you</h4>
-              <label>Exercise for a minimum of 30 minutes</label>
+              <h4><b>Q12.</b>   In the past one week, how often did you</h4>
+              <label><b>a)</b>   Exercise for a minimum of 30 minutes</label>
               <form>
                 <select value={minThirty} onChange={(e) => setMinThirty(e.target.value)}>
                   <option value="0">Never</option>
@@ -617,7 +546,7 @@ function App() {
                   <option value="5">More than 5 times</option>
                 </select>
               </form>
-              <label>Experience fast or pounding heartbeat during mild physical activity (e.g. walking)</label>
+              <label><b>b)</b>   Experience fast or pounding heartbeat during mild physical activity (e.g. walking)</label>
               <form>
                 <select value={heartbeat} onChange={(e) => setHeartbeat(e.target.value)}>
                   <option value="0">Never</option>
@@ -627,7 +556,7 @@ function App() {
                   <option value="5">More than 5 times</option>
                 </select>
               </form>
-              <label>Experience muscle pain or cramps during mild physical activity (e.g. walking)</label>
+              <label><b>c)</b>   Experience muscle pain or cramps during mild physical activity (e.g. walking)</label>
               <form>
                 <select value={muscle_pain} onChange={(e) => setMusclePain(e.target.value)}>
                   <option value="0">Never</option>
@@ -637,7 +566,7 @@ function App() {
                   <option value="5">More than 5 times</option>
                 </select>
               </form>
-              <label>Experience shortness of breath with mild physical exercise (e.g. walking)</label>
+              <label><b>d)</b>   Experience shortness of breath with mild physical exercise (e.g. walking)</label>
               <form>
                 <select value={shortness} onChange={(e) => setShortness(e.target.value)}>
                   <option value="0">Never</option>
@@ -647,7 +576,7 @@ function App() {
                   <option value="5">More than 5 times</option>
                 </select>
               </form>
-              <label>Feeling lethargic without physical activity</label>
+              <label><b>e)</b>   Feeling lethargic without physical activity</label>
               <form>
                 <select value={lethargic} onChange={(e) => setLethargic(e.target.value)}>
                   <option value="0">Never</option>
@@ -659,12 +588,24 @@ function App() {
               </form>
             </div>
             <div className='buttons'>
-            <button onClick={() => setShowQuestion(10)}>Previous</button>
-            <button onClick={() => handleChange()}>Submit Survey</button>
+              <button onClick={() => setShowQuestion(2)}>Previous</button>
+              <button onClick={() => setShowQuestion(4)}>Next</button>
+            </div>
+          </div>
+        ) : null
+        }
+
+        {showQuestion === 4 ? (
+          <div className='question-card'>
+            
+            <div className='buttons'>
+              <button onClick={() => setShowQuestion(3)}>Previous</button>
+              <button onClick={() => handleChange()}>Submit Survey</button>
             </div>
           </div>
           ) : null
         }
+
         </div>
         ) : null}
 
@@ -679,14 +620,15 @@ function App() {
           </thead>
           <tbody>
             {parseFloat(twscore) > 12 && lwscore>12 && parseFloat(fwscore)>12? <M2 /> : 
-            (parseFloat(twscore) <= 12 && lwscore <= 12 && parseFloat(fwscore) <= 12 ? <M1 diabetes={diabetes} hbp={hbp} hbc={hbc} obese={obese} /> : 
+            (parseFloat(twscore) <= 12 && lwscore <= 12 && parseFloat(fwscore) <= 12 ? 
+              <M1 diabetes={diabetes} hbp={hbp} hbc={hbc} obese={obese} 
+                allergies={{nuts: nut_allergy, shellfish: shellfish_allergy, eggs: egg_allergy, 
+                  milk: milk_allergy, grain: grain_allergy, soy: soy_allergy, fish: fish_allergy}} /> : 
             (parseFloat(twscore) <= 12 ? (parseFloat(fwscore)>12 ? <M5 /> : <M4 />) :
             <M3 />))}
-          {recommendedFoodItems.map((item) => (
-            <tr key={item}>
-              <td>{item}</td>
-            </tr>
-          ))}
+          <Food1 diabetes={diabetes} hbp={hbp} hbc={hbc} obese={obese} 
+                allergies={{nuts: nut_allergy, shellfish: shellfish_allergy, eggs: egg_allergy, 
+                  milk: milk_allergy, grain: grain_allergy, soy: soy_allergy, fish: fish_allergy}} />
           </tbody>
         </table>
       ) : null}

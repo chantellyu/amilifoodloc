@@ -6,7 +6,9 @@
   /* Dimensions  */
   width: 80%; /* Can be in percentage also. */
   height: auto;
-  
+  overflow: 'auto';
+  overflow-x: scroll;
+  overflow-y: scroll;
 }
 
 
@@ -61,7 +63,7 @@
   /* Dimensions  */
   width: 80%; /* Can be in percentage also. */
   height: auto;
-  line-height: 200%;
+  line-height: 300%;
 }
 
 .DOB p {

@@ -36,9 +36,9 @@ function M1({diabetes, hbp, hbc, obese}) {
         setMbdata(parsedDatamb);
       }
       fetchmbData();
-      setFdata(data.filter(item => item && (!diabetes || (item.Diabetes_Score > 3)) 
-        && (!hbp || (item.Hypertension_Score > 3)) && (!hbc || (item.Hyperlipidimia_Score > 3))
-        && (!obese || (item.Obesity_Score > 3)) && item.Food_Name.includes("Apple")));
+      setFdata(data.filter(item => item && (!diabetes || (item.Diabetes_Score > 4)) 
+        && (!hbp || (item.Hypertension_Score > 4)) && (!hbc || (item.Hyperlipidimia_Score > 4))
+        && (!obese || (item.Obesity_Score > 3)) && false));
     }, [mbdata])
     console.log(mbdata);
     console.log(filteredfood);
