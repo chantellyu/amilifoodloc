@@ -1,0 +1,81 @@
+﻿Think_Well​​,Live_Well​​,Feel_Well,Formulation​​,Recommended_food_items,Type,,
+Good/Great,Good/Great​,Good/Great​,"Formulation 1​
+For Immunity ​","Honeydew
+Watermelon
+Almonds
+Green tea
+Lentils
+Red Capsicum
+Lettuce
+Shiitake Mushroom
+Zucchini
+Cauliflower",1,"*Note: this default version will only be used for healthy adults with no known or diagnosed diseases
+- Food from this list will be swapped with other foods based on diesase categories and their food score.",
+Poor,Poor,Poor,"Formulation 2​
+For Well-being​","Blueberry
+Pineapple
+Kombucha
+Tempeh
+steam / baked Tofu
+Okra
+Carrot
+Cucumber
+Red cabbage
+Wheat Bran",2,,
+Good/Great​,Poor,Poor,"Formulation 5​
+For Energy​","Orange
+Avocado
+Cheese, reduced fat
+Wholegrain cereal
+Brown rice
+Low Fat Milk
+Brussel sprouts
+Chickpeas
+Eggs
+Salmon
+",5,"Poor Live well areas:
+Biomarkers (TMAO, Bile acid pool, cystein and indole, imidazole propionate, BCAA, Oxidative stress)
+- Recommend healthier choices of protein exp lean animal or plant proteins --> Helps improves TMAO, BCAA & Cystein scores
+- Recommend cruciferous vegetables that naturally boost indole. They contain compounds called glucosinolates. When these vegetables are chewed, chopped, or cooked, glucosinolates are broken down into various byproducts, including indole-3-carbinol (I3C).  --> Helps improves indole scores
+- Recommend foods that support bile production in the liver such as beets, bitter guord and dark green leafy vegetables --> Helps improves bile acid pool scores
+- Recommend foods that are rich on complex carbs or fiber rich foods --> Helps improves imidazole propionate scores
+- Recommend foods that are high in antioxidant (vit C, E and Selenium) --> Helps improves Oxidative stress scores",
+Good/Great​,Good/Great ​,Poor,,,,"Poor feel well areas:
+Biomarkers (CHO, PRO, FAT, Butyrate, lactate, vit B1, B6, B7, B9, B12)
+- Recommend foods rich in vitamin Bs. Vitamin B plays a crucial role in macronutrient metabolism by acting as coenzymes that help convert carbohydrates into usable energy. Refer to comments to read in detail --> Helps improve CHO, PRO, FAT, Vit B1, B6, B7, B9, B12 scores 
+- Recommend foods rich in dietary fiber and resistance starch. These substances serve as fuel for beneficial gut bacteria, which produce butyrate as a byproduct -->  Helps improve butyrate scores",
+Poor,Good/Great ​,Poor,"Formulation 3
+For Mind​","Kiwi
+Banana
+Sweet potato
+Kimchi
+Greek yogurt
+Kale
+Spinach
+Tomato
+Potato
+Miso",3,"Poor think well areas:
+Biomarkers (GABA, Serotonin, tryptophan)
+- Recommend foods that are high in GABA or probiotic strains of lactobacillus species (from fermented foods). Lactobacillus strains have the ability to produce GABA through a process called decarboxylation. They can convert the amino acid glutamate into GABA, thereby increasing GABA levels --> Helps improve GABA scores. 
+- Recommend foods that are high in serotonin or probiotic strains of lactobacillus or bifidobacterium species (from fermented foods). Lactobacillus and Bifidobacterium strains may enhance the availability of tryptophan, the precursor of serotonin, in the gut. They can increase the uptake of tryptophan from the diet or influence its metabolism, potentially leading to increased serotonin production. -->  Helps improves Serotonin scores.
+- Recommend foods high in tryptophan such as meat, fish, nuts and seeds --> Helps improves tryptophan scores.",
+Poor,Good/Great​,Good/Great​,,,,"Scored poor in all areas:
+Recommend foods that are scored good in live well, feel well and think well areas according to the food list. Literature based. ",
+Poor,Poor,Good/Great​,,,,"Scored good / great in all areas: 
+Recommend foods that are scored good in live well, feel well and think well areas according to the food list. Literature based. ",
+Good/Great​,Poor,Good/Great​,"Formulation 4
+For Strength​","Grapes
+Pomelo
+Whole meal bread
+Oats
+Steam / baked tofu
+Broccoli
+Cabbage
+Bitter melon
+Beetroot
+Pumpkin",4,,
+,,,,,,,
+References:,,,,,,,
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5986471/,,,,,,,
+,,,,,,,
+,,,,,,,
