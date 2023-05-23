@@ -5,7 +5,7 @@
   margin: 0 auto;
 
   /* Dimensions  */
-  width: 80%; /* Can be in percentage also. */
+  width: 90%; /* Can be in percentage also. */
   height: auto;
   overflow: 'auto';
   overflow-x: scroll;
@@ -84,7 +84,7 @@ body {
   margin: 0 auto;
 
   /* Dimensions  */
-  width: 80%; /* Can be in percentage also. */
+  width: 100%; /* Can be in percentage also. */
   height: auto;
 
   /* Visual  */
