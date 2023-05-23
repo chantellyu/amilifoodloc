@@ -24,7 +24,7 @@ function App() {
   //personal info
   const current = new Date().toISOString().split("T")[0];
   const [name, setName] = useState("");
-  const [gender, setGender] = useState("");
+  const [gender, setGender] = useState("Female");
   const [ethnicity, setEthnicity] = useState("");
   const [height, setHeight] = useState(0);
   const [weight, setWeight] = useState(0);
@@ -145,15 +145,20 @@ function App() {
     var fruitcount = 0;
     var vegcount = 0;
     var protcount = 0;
-    var maxProt = 3;
     const rendFruit1 = (item) => {
-      if (!grain_allergy && (parseInt(item.Type) < 1) && graincount < 1) {
+      if (!grain_allergy && (parseInt(item.Type) < 1) && graincount < 1 
+      && (gender === "Female" ? (parseInt(item.Gender) === 1) : true) 
+      && (gender === "Male" ? (parseInt(item.Gender) === 2) : true)) {
               graincount += 1;
               return (true);               
-      } else if (parseInt(item.Type) === 1 && fruitcount < 3) {
+      } else if (parseInt(item.Type) === 1 && fruitcount < 3
+      && (gender === "Female" ? (parseInt(item.Gender) === 1) : true) 
+      && (gender === "Male" ? (parseInt(item.Gender) === 2) : true)) {
               fruitcount += 1;
               return (true);
-      } else if (parseInt(item.Type) === 2 && vegcount < 3) {
+      } else if (parseInt(item.Type) === 2 && vegcount < 3 
+      && (gender.includes("Female") ? (parseInt(item.Gender) === 1) : true) 
+      && (gender.includes("Male") ? (parseInt(item.Gender) === 2) : true)) {
               vegcount += 1;
               return (true);
       } else if ((parseInt(item.Type) === 3) && protcount < (!grain_allergy ? 3 : 4) && !isVeg) {
@@ -697,9 +702,9 @@ function App() {
                         <h2>{name},</h2>
                         <h3>Welcome to your results!</h3>
                         <p>According to the survey, your scores are as follows, where a lower score is preferred:</p>
-                        <p>Live Well Score: {lwscore}</p>
-                        <p>Think Well Score: {twscore}</p>
-                        <p>Feel Well Score: {fwscore}</p>
+                        <p>Live Well Score: {lwscore > 12 ? ("Poor") : (lwscore > 6 ? ("Good") : ("Great"))}</p>
+                        <p>Think Well Score: {twscore > 12 ? ("Poor") : (twscore > 6 ? ("Good") : ("Great"))}</p>
+                        <p>Feel Well Score: {fwscore > 12 ? ("Poor") : (fwscore > 6 ? ("Good") : ("Great"))}</p>
 
                         <h4>We recommend the following foods according to your microbiome type:</h4>
                         {parseFloat(twscore) > 12 && lwscore>12 && parseFloat(fwscore)>12? 
@@ -719,13 +724,14 @@ function App() {
                     <div className='result-card'>
                         <h2>{name},</h2>
                         <h3>Welcome to your results!</h3>
-                        <p>In accordance with the medical conditions indicated in your survey response, we would like to recommend the following foods: </p>
+                        <h4>Overview</h4>
                         {opens.filter(item => (item.Disease_group.includes("General") || ((diabetes && item.Disease_group.includes("Diabetes")) ||
                         (hbp && item.Disease_group.includes("Hypertension")) || 
                         (hbc && item.Disease_group.includes("Dyslipidemia")) ||
                         (ibs && item.Disease_group.includes("IBS"))))).map((row, index) => (
                         <p>{row.Statements}</p>         
                     ))}
+                        <p>In accordance with the medical conditions indicated in your survey response, we would like to recommend the following foods: </p>
                       {(filteredfood.map((row, index) => (
                         <div>
                         <p>{row.Food_Name}</p>

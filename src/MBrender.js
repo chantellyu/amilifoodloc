@@ -24,14 +24,18 @@ function MBrender({type}) {
             setMbdata(parsedDatamb);
           }
           fetchmbData();
-          setMbfood(mbdata.filter(item => item && item.Type.includes(type)));
-          setFiltered(mbfood.map(item => (item.Recommended_food_items.split("\n"))));
-          console.log(filtered);
+          const getMb = async () => {
+            const tempmbf = await mbdata.filter(item => item && String(item.Type).includes(type));
+            setMbfood(tempmbf);
+          }
+          getMb();
+          //setMbfood(mbdata.filter(item => item && String(item.Type).includes(type)));
+          //setFiltered(mbfood.map(item => (item.Recommended_food_items.split("\n"))));
     }, []);
 
     return (
         <div>
-            {(mbdata.filter(item => item.Type.includes(type)).map((row, index) => (
+            {(mbfood.map((row, index) => (
                <div><p>{row.Recommended_food_items}</p></div>
              
             )))}
