@@ -180,7 +180,7 @@ function App() {
       calcLw();
       calcFw();
       calcTw();
-      if (bloating > 2 || pass_stool > 2 || ibs) {
+      if (bloating > 1 || pass_stool > 1 || ibs) {
         setIbs(true);
       }
       const tempfd = await data.filter(item => item && (!diabetes || (item.Diabetes_Score > 4)) 
@@ -459,7 +459,7 @@ function App() {
                   <option value="5">More than 5 times</option>
                 </select>
               </form>
-              <label><b>b)</b>   Bloating (Abdominal Distension)</label>
+              <label><b>b)</b>   Recurrent Bloating (Abdominal Distension)</label>
               <form>
                 <select value={bloating} onChange={(e) => setBloating(e.target.value)}>
                   <option value="0">Never</option>
@@ -708,12 +708,12 @@ function App() {
 
                         <h4>We recommend the following foods according to your microbiome type:</h4>
                         {parseFloat(twscore) > 12 && lwscore>12 && parseFloat(fwscore)>12? 
-            (<div><MBrender type={"Two"} /></div>): 
+            (<div><MBrender type={"2"} /></div>): 
             (parseFloat(twscore) <= 12 && lwscore <= 12 && parseFloat(fwscore) <= 12 ? 
-              (<div><MBrender type={"One"} /></div>) : 
-            (parseFloat(twscore) <= 12 ? (parseFloat(fwscore)>12 ? (<div><MBrender type={"Five"} /></div>) : 
-              (<div><MBrender type={"Four"} /></div>)) :
-                (<div><MBrender type={"Three"}  /></div>)))}
+              (<div><MBrender type={"1"} /></div>) : 
+            (parseFloat(twscore) <= 12 ? (parseFloat(fwscore)>12 ? (<div><MBrender type={"5"} /></div>) : 
+              (<div><MBrender type={"4"} /></div>)) :
+                (<div><MBrender type={"3"}  /></div>)))}
                         <button onClick={() => setShowRes(2)}>Next</button>
                     
                     </div> 

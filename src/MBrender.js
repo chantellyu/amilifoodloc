@@ -29,14 +29,12 @@ function MBrender({type}) {
             setMbfood(tempmbf);
           }
           getMb();
-          //setMbfood(mbdata.filter(item => item && String(item.Type).includes(type)));
-          //setFiltered(mbfood.map(item => (item.Recommended_food_items.split("\n"))));
     }, []);
 
     return (
         <div>
-            {(mbfood.map((row, index) => (
-               <div><p>{row.Recommended_food_items}</p></div>
+            {(mbdata.filter(item => item && String(item.Type).includes(type)).map((row) => (
+               <p>{row.Recommended_food_items}</p>
              
             )))}
         </div>
