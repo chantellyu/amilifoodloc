@@ -1,0 +1,261 @@
+﻿Food_Name,Type,Age,Gender,Irritable_Bowel_Syndrome​_Score,Obesity_Score,Diabetes_Score,GI_score,Hyperlipidimia_Score,Hypertension_Score,Healthy,Allergens,,
+Apple,1,2,2,1,Y,5,"36
+Low GI",5,5,5,N/A,,
+Apricot,1,2,1,1,Y,5,"34 - 58 
+Low GI",5,5,5,N/A,,
+Avocado,1,1,2,1,N,5,"40
+Low GI",5,5,4,N/A,,
+Banana,1,2,2,5,Y,5,ripe bananas have a low GI of 51  with slightly under-ripe bananas even lower at 42; they have a moderate GL of 13 and 11  respectively,5,5,5,N/A,,
+Blackberry,1,2,2,1,Y,5,"25
+Low GI",5,5,5,N/A,,
+Blueberry,1,2,2,5,Y,3,"53
+Low GI",5,5,5,N/A,,
+Ciku,1,2,2,3,Y,5,"37
+Low GI ",5,5,5,N/A,,
+Durian,1,1,2,5,Y,5,"49 
+Low GI",5,5,5,N/A,,
+Fig,1,2,2,1,Y,3,"61
+Medium GI",5,5,5,N/A,,
+Red Grapefruit,1,2,2,1,Y,5,"25
+Low GI",5,5,5,N/A,,
+Red Grape,1,2,2,5,Y,3,"49
+Low GI",5,5,5,N/A,,
+Green Guava,1,1,2,1,Y,1,"31 - 33
+Low GI",5,5,5,N/A,,
+Honeydew,1,2,2,5,Y,5,"62
+Medium GI",5,5,5,N/A,,
+Jackfruit,1,1,2,5,Y,5,"75
+High GI",5,5,5,N/A,,
+Lime,1,2,2,5,Y,5,"32
+Low GI",5,5,5,N/A,,
+Lychee,1,1,2,1,Y,1,"48
+Low GI",5,5,5,N/A,,
+Mango,1,2,2,1,Y,5,"51-56
+Low / medium GI",5,5,5,N/A,,
+Mangosteen,1,2,2,5,Y,5,"58
+Medium GI",5,5,5,N/A,,
+Papaya,1,2,2,5,Y,5,"59
+Medium GI ",5,5,5,N/A,,
+Passionfruit,1,2,2,5,Y,5,"16
+Low GI ",5,5,5,N/A,,
+Peach,1,1,2,1,Y,5,"42
+Low GI ",5,5,5,N/A,,
+Kiwi,1,2,2,5,Y,5,"58
+Medium GI",5,5,5,N/A,,
+Asian Pear,1,2,2,1,Y,5,"18 - 26
+Low GI",5,5,5,N/A,,
+Packham Pear,1,1,2,1,Y,5,"20 - 49
+Low GI",5,5,5,N/A,,
+Persimmon,1,2,2,1,Y,3,"61
+Medium GI",5,5,5,N/A,,
+Pineapple,1,2,2,5,Y,5,"66
+Medium GI",5,5,5,N/A,,
+Plum,1,2,2,1,Y,5,"53
+Low GI",5,5,5,N/A,,
+Pomegranate,1,2,2,1,Y,5,"35
+Low GI",5,5,5,N/A,,
+Pomelo,1,2,2,1,Y,5,"72 - 78
+High GI",5,5,5,N/A,,
+Rambutan,1,2,2,5,Y,5,"59
+Medium GI ",5,5,5,N/A,,
+Raspberry,1,2,2,5,Y,5,"26
+Low GI",5,5,5,N/A,,
+Soursop,1,2,2,1,Y,1,"32
+Low GI",5,5,5,N/A,,
+Strawberry,1,2,1,5,Y,5,"40
+Low GI",5,5,5,N/A,,
+Watermelon,1,2,1,1,Y,5,"76
+High GI",5,5,5,N/A,,
+Bamboo Shoot,2,2,2,5,Y,5,"32
+Low GI",5,5,5,N/A,,
+Broad Bean,4,1,2,1,Y,5,"79
+High GI",5,5,5,Legumes,,
+Lima Bean,4,1,2,1,N,1,"32
+Low GI",5,5,5,Legumes,,
+Soybean,4,1,2,1,N,5,"14
+Low GI",5,5,5,Soy,,
+Black Soybean,4,1,2,1,N,1,"14
+Low GI",5,5,5,Soy,,
+Beetroot,2,2,2,1,Y,5,"64
+Medium GI",5,5,5,N/A,,
+Black Olive (fresh),2,2,1,5,Y,5,"15
+Low GI",5,5,5,N/A,,
+Broccoli,2,2,1,5,Y,5,"32
+Low GI",5,5,5,N/A,,
+Brussel Sprout,2,2,2,5,Y,5,"15
+Low GI",5,5,5,N/A,,
+Red Cabbage,2,2,2,5,Y,5,"32
+Low GI",5,5,5,N/A,,
+Red Capsicum,2,2,2,5,Y,5,"32
+Low GI",5,5,5,N/A,,
+Carrot,2,2,2,5,Y,5,"39
+Low GI",5,5,5,N/A,,
+Cauliflower,2,2,2,1,Y,5,"15
+Low GI",5,5,5,N/A,,
+Celery,2,2,2,1,Y,5,"32
+Low GI",5,5,5,N/A,,
+Coriander,2,2,2,5,Y,5,"32
+Low GI",4,4,5,N/A,,
+Corn,2,1,2,5,Y,1,"52
+Low GI",5,5,5,N/A,,
+Cucumber,2,2,2,5,Y,5,"21
+Low GI",5,5,5,N/A,,
+Moringa,2,2,2,3,Y,5,N/A,5,5,5,N/A,,
+French Bean,4,1,2,5,Y,1,"20
+Low GI",5,5,5,Legumes,,
+Garlic,2,2,2,1,Y,5,"30
+Low GI",5,5,5,N/A,,
+Ginger,2,2,2,5,Y,5,"10
+Low GI",5,5,5,N/A,,
+Ginseng,2,1,2,3,Y,5,N/A,4,4,5,N/A,,
+Kale,2,2,1,5,Y,5,Low GI,5,5,5,N/A,,
+Leek,2,2,2,1,Y,5,"32
+Low GI",5,5,5,N/A,,
+Lettuce,2,2,2,5,Y,5,"32
+Low GI",5,5,5,N/A,,
+Longbean,4,1,2,5,Y,5,"86
+High GI",5,5,5,Legumes,,
+Shiitake Mushroom,2,2,2,1,Y,5,"32
+Low GI",5,5,5,N/A,,
+Okra,2,2,2,5,Y,5,"17
+Low GI",5,5,5,N/A,,
+White Potato,2,1,2,5,Y,3,"86
+High GI",5,5,5,N/A,,
+Spinach,2,2,1,5,Y,5,"32
+Low GI",5,5,5,N/A,,
+Mung Bean Sprout,4,2,2,5,Y,5,"25
+Low GI",5,5,5,N/A,,
+Soybean Sprout,4,2,2,5,Y,5,"15
+Low GI",5,5,5,Soy,,
+Purple Sweet Potato,2,1,1,5,Y,1,"70
+High GI",5,5,5,N/A,,
+Tomato,2,2,2,5,Y,5,"23
+Low GI",5,5,5,N/A,,
+Water Chestnut,1,2,2,5,Y,3,N/A,5,5,5,N/A,,
+Watercress,2,2,2,5,Y,5,"32
+Low GI",5,5,5,N/A,,
+Wintermelon,2,2,2,2,Y,5,Low GI,4,5,5,N/A,,
+Yam,2,1,2,5,Y,1,"51
+Low GI",5,5,5,N/A,,
+Zucchini,2,2,2,5,Y,5,"15
+Low GI",5,5,5,N/A,,
+Bitter melon,2,2,2,4,Y,5,N/A,5,5,5,N/A,,
+Almond (unsalted),4,1,2,5,N,5,"0
+Low GI",5,5,5,Nuts,,
+Brazil Nut (unsalted),4,1,2,5,N,5,"10
+Low GI",5,5,5,Nuts,,
+Cashew (unsalted),4,1,2,1,N,1,"25
+Low GI",5,5,5,Nuts,,
+Macadamia (unsalted),4,1,2,5,N,5,"10
+Low GI",5,5,5,Nuts,,
+Peanut (unsalted),4,1,2,5,N,5,"13
+Low GI",5,5,5,Nuts,,
+Pecan (unsalted),4,1,2,5,N,5,"10
+Low GI",5,5,5,Nuts,,
+Pistachio (unsalted),4,1,2,1,N,5,"28
+Low GI",5,5,5,Nuts,,
+Walnut (unsalted),4,1,2,5,N,5,"0
+Low GI",5,5,5,Nuts,,
+Lotus Seed,4,2,2,3,Y,5,"45
+Low GI",5,5,5,N/A,,
+Sesame Seed,4,1,2,5,N,3,"<55
+Low GI",5,5,5,N/A,,
+Miso soup,4,2,2,5,Y,5,"61
+Medium GI",4,5,5,Soy ,,
+Tahini,4,1,2,5,N,5,"40
+Low GI",5,5,5,N/A,,
+Brown Rice,0,2,2,5,Y,1,"66
+Medium GI",5,5,5,Grain,,
+Oat,0,2,1,5,Y,5,"59
+Medium GI",5,5,5,"Gluten
+Grain",,
+Wheat Bran,0,2,1,1,Y,5,"56
+Medium GI",5,5,5,Grain,,
+Wholegrain Cereal,0,2,2,1,Y,5,"55
+Low GI",5,5,5,"Gluten
+Grain",,
+Chapati  wholewheat flour,0,2,2,1,Y,5,"45
+Low GI",5,5,5,"Gluten
+Grain",,
+High Fibre Bread,0,2,2,1,Y,5,N/A,5,5,5,"Gluten
+Lactose
+Grain
+Milk",,
+Wholemeal Bread,0,2,1,1,Y,5,"65
+Medium GI",5,5,5,"Gluten
+Lactose
+Grain
+Milk",,
+Paper Thosai,0,2,2,5,Y,1,"39.69
+Low GI",4,5,5,"Legumes
+Milk",,
+Brown Rice Noodle,0,2,2,5,Y,5,"65
+Medium GI",5,5,5,"Gluten
+Grain",,
+Cheese (reduced fat),3,1,2,5,Y,5,"0
+Low GI
+",5,5,5,"Dairy
+Milk",,
+Low-fat milk,5,1,2,1,Y,5,"31
+Low GI",5,5,5,"Dairy
+Milk",,
+Eggs,3,1,2,5,Y,5,"0 
+Low GI",5,5,5,Egg,,
+Chickpea,4,1,2,3,N,1,"36
+Low GI",5,5,5,N/A,,
+Herbal Chicken Tonic,3,1,2,5,N,5,N/A,4,1,5,N/A,,
+Skinless Roasted Chicken,3,2,2,5,Y,5,N/A,4,4,5,N/A,,
+Beef Steak,3,N/A,2,5,N,1,"0
+Low GI",1,1,1,N/A,,
+Tofu,4,2,1,5,Y,5,"15
+Low GI",5,5,5,Soy,,
+Prawn,3,2,1,5,Y,5,"0
+Low GI
+",4,2,5,Shellfish,,
+Salmon,3,2,2,5,N,5,"0
+Low GI
+",5,5,5,Fish,,
+Natural Yoghurt,4,2,2,1,Y,5,"19
+Low GI",5,5,5,"Lactose
+Milk",,
+Acai Bowl,4,2,2,1,Y,1,N/A,5,5,4,"Lactose
+Nuts",,
+Chicken Quinoa Salad with Vegetables,3,2,2,1,N,1,"Quinoa:
+53
+Low GI",5,5,5,N/A,,
+Chickpea Curry,4,2,2,1,N,1,"Chickpea:
+36
+Low GI",1,1,1,N/A,,
+Dhal,4,2,2,1,Y,1,"29
+Low GI",5,5,5,N/A,,
+Kimchi,2,2,2,2,Y,5,N/A,5,5,5,N/A,,
+Korean Kimchi Soup,4,2,2,2,Y,5,N/A,5,1,5,"Fish
+Shellfish
+Soy",,
+Lentil with Rice,4,1,1,1,Y,1,"29
+Low GI",5,5,5,Grain,,
+Stir-fried Tempeh with Longbean,4,2,2,1,N,5,"Tempeh
+15 Low GI
+
+Long bean
+86 High GI",4,4,4,Soy,,
+Pumpkin Soup,2,1,2,2,N,5,"Pumpkin
+64 Medium GI
+
+Pumpkin soup
+N/A",5,3,4,"Lactose
+Milk",,
+Salmon Nigiri,3,2,2,5,Y,5,N/A,5,5,4,Fish,,
+Stir-fried Vegetables,2,2,2,1,Y,5,N/A,5,5,4,N/A,,
+Thai Mango Salad,1,1,2,1,N,1,"Mango
+51
+Low GI",5,1,5,Nuts,,
+Black Tea,5,2,2,5,Y,5,"0
+Low GI",5,5,5,N/A,,
+Green Tea,5,2,2,5,Y,5,N/A,5,5,5,N/A,,
+Kombucha,5,2,2,1,Y,5,N/A,5,5,4,N/A,,
+Dark Chocolate,4,1,2,5,Y,5,"23
+Low GI",5,5,4,"Lactose
+Soy
+Milk",,
+White Fungus and Longan Soup,5,1,1,1,Y,1,N/A,4,5,4,N/A,,
