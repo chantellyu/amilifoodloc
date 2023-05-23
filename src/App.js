@@ -709,15 +709,20 @@ function App() {
                         <h4>We recommend the following foods according to your microbiome type:</h4>
                         <div className='food-listing'>
                         {parseFloat(twscore) > 12 && lwscore>12 && parseFloat(fwscore)>12? 
-            (<div><MBrender type={"2"} /></div>): 
-            (parseFloat(twscore) <= 12 && lwscore <= 12 && parseFloat(fwscore) <= 12 ? 
-              (<div><MBrender type={"1"} /></div>) : 
-            (parseFloat(twscore) <= 12 ? (parseFloat(fwscore)>12 ? (<div><MBrender type={"5"} /></div>) : 
-              (<div><MBrender type={"4"} /></div>)) :
-                (<div><MBrender type={"3"}  /></div>)))}
-                </div>
+                          (<div><MBrender type={"2"} allergies={{nut: nut_allergy, shellfish: shellfish_allergy, egg: egg_allergy, 
+                            milk: milk_allergy, grain: grain_allergy, soy: soy_allergy, fish: fish_allergy}} /></div>): 
+                        (parseFloat(twscore) <= 12 && lwscore <= 12 && parseFloat(fwscore) <= 12 ? 
+                          (<div><MBrender type={"1"} allergies={{nut: nut_allergy, shellfish: shellfish_allergy, egg: egg_allergy, 
+                            milk: milk_allergy, grain: grain_allergy, soy: soy_allergy, fish: fish_allergy}} /></div>) : 
+                        (parseFloat(twscore) <= 12 ? (parseFloat(fwscore)>12 ? 
+                          (<div><MBrender type={"5"} allergies={{nut: nut_allergy, shellfish: shellfish_allergy, egg: egg_allergy, 
+                            milk: milk_allergy, grain: grain_allergy, soy: soy_allergy, fish: fish_allergy}} /></div>) : 
+                          (<div><MBrender type={"4"} allergies={{nut: nut_allergy, shellfish: shellfish_allergy, egg: egg_allergy, 
+                            milk: milk_allergy, grain: grain_allergy, soy: soy_allergy, fish: fish_allergy}} /></div>)) :
+                          (<div><MBrender type={"3"} allergies={{nut: nut_allergy, shellfish: shellfish_allergy, egg: egg_allergy, 
+                            milk: milk_allergy, grain: grain_allergy, soy: soy_allergy, fish: fish_allergy}} /></div>)))}
+                        </div>
                         <button class="button-r" role="button" onClick={() => setShowRes(2)}>Next</button>
-                    
                     </div> 
                 ) : null
             }
