@@ -45,6 +45,9 @@ function App() {
   const [ibd_history_checked, setibdChecked] = useState(false);
   const [nash_history_checked, setnashChecked] = useState(false);
   const [t2dm_history_checked, sett2dmChecked] = useState(false);
+  const [nofam_checked, setnofamChecked] = useState(false);
+  const [noself_checked, setnoselfChecked] = useState(false);
+  const [noallergies_checked, setnoallergiesChecked] = useState(false);
 
   //stomach history
   const [acid_reflux, setAcidReflux] = useState(0);
@@ -378,23 +381,25 @@ function App() {
             </div>
           <div className="family_history">
               <h3>This section helps us understand your medical history and gut-related issues. Understanding this allows us to determine the help you need most!</h3>
-              <label><b>Q7.</b>   Have <b>you or any of your immediate family members</b> (parents, siblings, or children) recorded the following medical conditions?</label>
+              <label><b>Q7.</b>   Have <b>you or any of your immediate family members</b> (parents, siblings, or children) recorded the following medical conditions? (check all that apply)</label>
               <p><input type="checkbox" checked={cd_history_checked} onChange={() => setcdChecked(!cd_history_checked)} />Cardiovascular Diseases</p>
               <p><input type="checkbox" checked={cc_history_checked} onChange={() => setccChecked(!cc_history_checked)} />Colon Cancer / Colorectal cancer</p>
               <p><input type="checkbox" checked={gerd_history_checked} onChange={() => setgerdChecked(!gerd_history_checked)} />Gastroesophageal Reflux Disease (GERD)</p>
               <p><input type="checkbox" checked={ibd_history_checked} onChange={() => setibdChecked(!ibd_history_checked)} />Inflammatory Bowel Disease (IBD)</p>
               <p><input type="checkbox" checked={nash_history_checked} onChange={() => setnashChecked(!nash_history_checked)} />Nonalcoholic Steatohepatitis (NASH)</p>
               <p><input type="checkbox" checked={t2dm_history_checked} onChange={() => sett2dmChecked(!t2dm_history_checked)} />Type 2 Diabetes Mellitus (T2DM)</p>
+              <p><input type="checkbox" checked={nofam_checked} onChange={() => setnofamChecked(!nofam_checked)} />None of these apply</p>
           </div>
           <div className="chronic_diseases">
-              <label><b>Q8.</b>   Have <b>you</b> recorded the following medical conditions?</label>
+              <label><b>Q8.</b>   Have <b>you</b> recorded the following medical conditions? (check all that apply)</label>
               <p><input type="checkbox" checked={diabetes} onChange={() => setDiabetes(!diabetes)} />Diabetes</p>
               <p><input type="checkbox" checked={hbp} onChange={() => setHbp(!hbp)} />High Blood Pressure</p>
               <p><input type="checkbox" checked={hbc} onChange={() => setHbc(!hbc)} />High Blood Cholesterol</p>
               <p><input type="checkbox" checked={ibs} onChange={() => setIbs(!ibs)}  />Irritable Bowel Syndrome</p>
+              <p><input type="checkbox" checked={noself_checked} onChange={() => setnoselfChecked(!noself_checked)} />None of these apply</p>
           </div>
           <div className="allergies">
-            <label><b>Q9.</b>   Are you allergic to any of the following foods?</label>
+            <label><b>Q9.</b>   Are you allergic to any of the following foods? (check all that apply)</label>
             <p><input type="checkbox" checked={nut_allergy} onChange={() => setNutAllergy(!nut_allergy)} />Nuts</p>
             <p><input type="checkbox" checked={shellfish_allergy} onChange={() => setShellfishAllergy(!shellfish_allergy)} />Shellfish</p>
             <p><input type="checkbox" checked={egg_allergy} onChange={() => setEggAllergy(!egg_allergy)} />Eggs</p>
@@ -402,6 +407,7 @@ function App() {
             <p><input type="checkbox" checked={grain_allergy} onChange={() => setGrainAllergy(!grain_allergy)} />Grains (wheat, oat, barley etc)</p>
             <p><input type="checkbox" checked={soy_allergy} onChange={() => setSoyAllergy(!soy_allergy)} />Soy</p>
             <p><input type="checkbox" checked={fish_allergy} onChange={() => setFishAllergy(!fish_allergy)} />Fish</p>
+            <p><input type="checkbox" checked={noallergies_checked} onChange={() => setnoallergiesChecked(!noallergies_checked)} />None of these apply</p>
           </div>
           <button class="button-1" role="button" onClick={() => setShowQuestion(2)}>Next</button>
         </div>
@@ -665,9 +671,9 @@ function App() {
                         <h2>{name},</h2>
                         <h3>Welcome to your results!</h3>
                         <p>According to the survey, your microbiome scores are as follows:</p>
-                        <p>Live Well Score: {lwscore > 12 ? ("Poor") : (lwscore > 6 ? ("Good") : ("Great"))}</p>
-                        <p>Think Well Score: {twscore > 12 ? ("Poor") : (twscore > 6 ? ("Good") : ("Great"))}</p>
-                        <p>Feel Well Score: {fwscore > 12 ? ("Poor") : (fwscore > 6 ? ("Good") : ("Great"))}</p>
+                        <p>Live Well Score <i>(scores your neurotransmission pathways)</i>: {lwscore > 12 ? ("Poor") : (lwscore > 6 ? ("Good") : ("Great"))}</p>
+                        <p>Think Well Score <i>(scores your gut, heart, and liver health)</i>: {twscore > 12 ? ("Poor") : (twscore > 6 ? ("Good") : ("Great"))}</p>
+                        <p>Feel Well Score <i>(scores your gut’s energy harvesting pathways)</i>: {fwscore > 12 ? ("Poor") : (fwscore > 6 ? ("Good") : ("Great"))}</p>
 
                         <h4>We recommend the following foods according to your microbiome type:</h4>
                         <div className='food-listing'>
