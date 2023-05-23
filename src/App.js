@@ -1,25 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import Papa from 'papaparse';
 import Data from './Food_Logic_Vitality.csv';
-import MAPData from './MB_food.csv';
 import './App.css';
 import MBrender from './MBrender';
 import Datao from './open_s.csv';
 
 function App() {
   const [data, setData] = useState([]);
-  const [MAPdata, setMAPdata] = useState([]);
   const [lwscore, setLwscore] = useState(0);
   const [twscore, setTwscore] = useState("0");
   const [fwscore, setFwscore] = useState("0");
   const [questions, setQuestions] = useState(true);
-  const [recommendedFoodItems, setRecommendedFoodItems] = useState([]);
   const [showQuestion, setShowQuestion] = useState(1);
   const [showRes, setShowRes] = useState(1);
   const [filteredfood, setFdata] = useState([]);
-  const [starte, setStarte] = useState(false);
   const [opens, setOpens] = useState([]);
-  const [temd, setTemd] = useState([]);
 
   //personal info
   const current = new Date().toISOString().split("T")[0];
@@ -93,24 +88,6 @@ function App() {
       setData(parsedData)
     }
     fetchData();
-    const fetchMAPData = async () => {
-      const response1 = await fetch(MAPData);
-      const reader1 = response1.body.getReader();
-      const result1 = await reader1.read();
-      const decoder1 = new TextDecoder("utf-8");
-      const csvData1 = decoder1.decode(result1.value);
-      const parsedDataMAP = Papa.parse(csvData1, {
-        header: true, 
-        skipEmptyLines: true,
-      }).data;
-      setMAPdata(parsedDataMAP)
-      const filteredFoodItems = parsedDataMAP
-        .filter(item => item.Formulation === 2)
-        .map(item => item.Recommended_food_items);
-      
-        setRecommendedFoodItems(filteredFoodItems);
-    }
-    fetchMAPData();
     const fetchoData = async () => {
       const responseo = await fetch(Datao);
       const readero = responseo.body.getReader();
@@ -127,17 +104,7 @@ function App() {
     
 
     
-    //setFinalData(filteredfood.filter(item => rendFruit1(item)));
-    const onPageLoad = () => {
-      setStarte(true);
-    }
-    if (document.readyState === 'complete') {
-      onPageLoad();
-    } else {
-      window.addEventListener('load', onPageLoad);
-      // Remove the event listener when component unmounts
-      return () => window.removeEventListener('load', onPageLoad);
-    }
+    
   }, []);
 
 
@@ -198,12 +165,8 @@ function App() {
       setFdata(tempfd);
     
     };
-
     getFood();
     setQuestions(false);
-
-    
-
   };
 
 
@@ -722,12 +685,12 @@ function App() {
                           (<div><MBrender type={"3"} allergies={{nut: nut_allergy, shellfish: shellfish_allergy, egg: egg_allergy, 
                             milk: milk_allergy, grain: grain_allergy, soy: soy_allergy, fish: fish_allergy}} /></div>)))}
                         </div>
-                        <button class="button-r" role="button" onClick={() => setShowRes(2)}>Next</button>
+                        <button class="button-1" role="button" onClick={() => setShowRes(2)}>Next</button>
                     </div> 
                 ) : null
             }
 
-              {starte ? (showRes === 2 ? (
+              {(showRes === 2 ? (
                     <div className='result-card'>
                         <h2>{name},</h2>
                         <h3>Welcome to your results!</h3>
@@ -744,11 +707,12 @@ function App() {
                         <p>{row.Food_Name}</p>
                         </div>
                         )))}
-                    
-                        <button class="button-r" role="button" onClick={() => setShowRes(1)}>Previous</button>
-                    
+                        <div className='buttons-r-div'>
+                        <button class="button-1" role="button" onClick={() => setShowRes(1)}>Previous</button>
+                        <button class="button-2" role="button" onClick={() => window.location.reload(false)}>Restart Survey</button>
+                        </div>
                     </div> 
-                ) : null) : <h1>loading</h1>
+                ) : null)
             }
         </div>
       ) : null}
