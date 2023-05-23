@@ -369,11 +369,11 @@ function App() {
         <div className='question-card'>
           <h2>Welcome to AMILI's food recommendation survey!</h2>
           <h3>Based off the information you provide here, we will recommend certain foods accordingly. We do not store or collect the information provided here.</h3>
-          <h3>This survey consists of 12 questions targeting various aspects of your lifestyle.</h3>
+          <h3>This survey consists of 14 questions targeting various aspects of your lifestyle.</h3>
           <h3>First, help us get to know you better. Providing demographic information helps us give more targeted recommendations based on your answers.</h3>
           <div className='Enter_Name'>
             <label><b>Q1.</b>   Please enter your name:</label>
-            <input type='text' value={name} onChange={(e) => setName(e.target.value)} />
+            <p><input type='text' value={name} onChange={(e) => setName(e.target.value)} /></p>
           </div>
           <div className='Gender'>
             <label><b>Q2.</b>   What is your gender?</label>
@@ -406,16 +406,16 @@ function App() {
               </div> ) : null}
           </div>
           <div className="height">
-              <label>Please enter your height in centimeters (cm), to the nearest whole number. (eg. 165)</label>
+              <label><b>Q5.</b>   Please enter your height in centimeters (cm), to the nearest whole number. (eg. 165)</label>
               <p><input type='number' value={height} onChange={(e) => setHeight(e.target.value)}/></p>
             </div>
             <div className="weight">
-              <label>Please enter your weight in kilograms (kg), to the nearest whole number. (eg. 65)</label>
+              <label><b>Q6.</b>   Please enter your weight in kilograms (kg), to the nearest whole number. (eg. 65)</label>
               <p><input type='number' value={weight} onChange={(e) => setWeight(e.target.value)}/></p>
             </div>
           <div className="family_history">
               <h3>This section helps us understand your medical history and gut-related issues. Understanding this allows us to determine the help you need most!</h3>
-              <label><b>Q5.</b>   Have <b>you or any of your immediate family members</b> (parents, siblings, or children) recorded the following medical conditions?</label>
+              <label><b>Q7.</b>   Have <b>you or any of your immediate family members</b> (parents, siblings, or children) recorded the following medical conditions?</label>
               <p><input type="checkbox" checked={cd_history_checked} onChange={() => setcdChecked(!cd_history_checked)} />Cardiovascular Diseases</p>
               <p><input type="checkbox" checked={cc_history_checked} onChange={() => setccChecked(!cc_history_checked)} />Colon Cancer / Colorectal cancer</p>
               <p><input type="checkbox" checked={gerd_history_checked} onChange={() => setgerdChecked(!gerd_history_checked)} />Gastroesophageal Reflux Disease (GERD)</p>
@@ -424,23 +424,23 @@ function App() {
               <p><input type="checkbox" checked={t2dm_history_checked} onChange={() => sett2dmChecked(!t2dm_history_checked)} />Type 2 Diabetes Mellitus (T2DM)</p>
           </div>
           <div className="chronic_diseases">
-              <label><b>Q6.</b>   Have <b>you</b> recorded the following medical conditions?</label>
+              <label><b>Q8.</b>   Have <b>you</b> recorded the following medical conditions?</label>
               <p><input type="checkbox" checked={diabetes} onChange={() => setDiabetes(!diabetes)} />Diabetes</p>
               <p><input type="checkbox" checked={hbp} onChange={() => setHbp(!hbp)} />High Blood Pressure</p>
               <p><input type="checkbox" checked={hbc} onChange={() => setHbc(!hbc)} />High Blood Cholesterol</p>
               <p><input type="checkbox" checked={ibs} onChange={() => setIbs(!ibs)}  />Irritable Bowel Syndrome</p>
           </div>
           <div className="allergies">
-            <label><b>Q7.</b>   Are you allergic to any of the following foods?</label>
+            <label><b>Q9.</b>   Are you allergic to any of the following foods?</label>
             <p><input type="checkbox" checked={nut_allergy} onChange={() => setNutAllergy(!nut_allergy)} />Nuts</p>
             <p><input type="checkbox" checked={shellfish_allergy} onChange={() => setShellfishAllergy(!shellfish_allergy)} />Shellfish</p>
             <p><input type="checkbox" checked={egg_allergy} onChange={() => setEggAllergy(!egg_allergy)} />Eggs</p>
             <p><input type="checkbox" checked={milk_allergy} onChange={() => setMilkAllergy(!milk_allergy)} />Cow's milk</p>
             <p><input type="checkbox" checked={grain_allergy} onChange={() => setGrainAllergy(!grain_allergy)} />Grains (wheat, oat, barley etc)</p>
             <p><input type="checkbox" checked={soy_allergy} onChange={() => setSoyAllergy(!soy_allergy)} />Soy</p>
-            <p><input type="checkbox" checked={fish_allergy} onChange={() => setFishAllergy(!fish_allergy)} />Shellfish</p>
+            <p><input type="checkbox" checked={fish_allergy} onChange={() => setFishAllergy(!fish_allergy)} />Fish</p>
           </div>
-          <button onClick={() => setShowQuestion(2)}>Next</button>
+          <button class="button-1" role="button" onClick={() => setShowQuestion(2)}>Next</button>
         </div>
           )
            : null
@@ -448,7 +448,7 @@ function App() {
         {showQuestion === 2 ? (
           <div className='question-card'>
             <div className="stomach_history">
-              <h4><b>Q8.</b>   In the past one week, how often did you experience the following?</h4>
+              <h4><b>Q10.</b>   In the past one week, how often did you experience the following?</h4>
               <label><b>a)</b>   Acid Reflux (when some of the acidic stomach contents go back up into the back of your throat)</label>
               <form>
                 <select value={acid_reflux} onChange={(e) => setAcidReflux(e.target.value)}>
@@ -512,7 +512,7 @@ function App() {
             </div>  
             <div className='diet'>
               <h3>This section gives us a snapshot of your diet and helps us assess the links between your lifestyle and your gut health. This then improves our food recommendations for you.</h3>
-              <h4><b>Q9.</b>   In the past week, how many servings of the following did you consume? (1 serving is roughly the size of your closed fist)</h4>
+              <h4><b>Q11.</b>   In the past week, how many servings of the following did you consume? (1 serving is roughly the size of your closed fist)</h4>
               <label><b>a)</b>   Fruits</label>
               <form>
                 <select value={fruit} onChange={(e) => setFruit(e.target.value)}>
@@ -533,7 +533,7 @@ function App() {
               </form>
             </div>
             <div className='diet-2'>
-              <h4><b>Q10.</b>   In the past week, how often did you consume of the following?</h4>
+              <h4><b>Q12.</b>   In the past week, how often did you consume of the following?</h4>
               <label><b>a)</b>   Alcoholic drinks</label>
               <form>
                 <select value={alcohol} onChange={(e) => setAlcohol(e.target.value)}>
@@ -586,8 +586,8 @@ function App() {
               </form>
             </div>
             <div className='buttons'>
-              <button onClick={() => setShowQuestion(1)}>Previous</button>
-              <button onClick={() => setShowQuestion(3)}>Next</button>
+              <button class="button-1" role="button" onClick={() => setShowQuestion(1)}>Previous</button>
+              <button class="button-2" role="button" onClick={() => setShowQuestion(3)}>Next</button>
             </div>
           </div>
           ) : null
@@ -597,7 +597,7 @@ function App() {
           <div className='question-card'>
             <div className='mental'>
               <h3>Almost there! This last section helps us understand your general well-being. Here, we aim to draw more linkages to your gut microbiome and your mental and physical health.</h3>
-              <h4><b>Q11.</b>   In the past one week, how often did you experience the following?</h4>
+              <h4><b>Q13.</b>   In the past one week, how often did you experience the following?</h4>
               <label><b>a)</b>   Difficulty remembering / recalling things</label>
               <form>
                 <select value={remembering} onChange={(e) => setRemembering(e.target.value)}>
@@ -630,7 +630,7 @@ function App() {
               </form>
             </div>
             <div className='activity'>
-              <h4><b>Q12.</b>   In the past one week, how often did you</h4>
+              <h4><b>Q14.</b>   In the past one week, how often did you</h4>
               <label><b>a)</b>   Exercise for a minimum of 30 minutes</label>
               <form>
                 <select value={minThirty} onChange={(e) => setMinThirty(e.target.value)}>
@@ -683,8 +683,8 @@ function App() {
               </form>
             </div>
             <div className='buttons'>
-              <button onClick={() => setShowQuestion(2)}>Previous</button>
-              <button onClick={() => handleChange()}>Submit Survey</button>
+              <button class="button-1" role="button" onClick={() => setShowQuestion(2)}>Previous</button>
+              <button class="button-2" role="button" onClick={() => handleChange()}>Submit Survey</button>
             </div>
           </div>
         ) : null
@@ -701,12 +701,13 @@ function App() {
                     <div className='result-card'>
                         <h2>{name},</h2>
                         <h3>Welcome to your results!</h3>
-                        <p>According to the survey, your scores are as follows, where a lower score is preferred:</p>
+                        <p>According to the survey, your microbiome scores are as follows:</p>
                         <p>Live Well Score: {lwscore > 12 ? ("Poor") : (lwscore > 6 ? ("Good") : ("Great"))}</p>
                         <p>Think Well Score: {twscore > 12 ? ("Poor") : (twscore > 6 ? ("Good") : ("Great"))}</p>
                         <p>Feel Well Score: {fwscore > 12 ? ("Poor") : (fwscore > 6 ? ("Good") : ("Great"))}</p>
 
                         <h4>We recommend the following foods according to your microbiome type:</h4>
+                        <div className='food-listing'>
                         {parseFloat(twscore) > 12 && lwscore>12 && parseFloat(fwscore)>12? 
             (<div><MBrender type={"2"} /></div>): 
             (parseFloat(twscore) <= 12 && lwscore <= 12 && parseFloat(fwscore) <= 12 ? 
@@ -714,7 +715,8 @@ function App() {
             (parseFloat(twscore) <= 12 ? (parseFloat(fwscore)>12 ? (<div><MBrender type={"5"} /></div>) : 
               (<div><MBrender type={"4"} /></div>)) :
                 (<div><MBrender type={"3"}  /></div>)))}
-                        <button onClick={() => setShowRes(2)}>Next</button>
+                </div>
+                        <button class="button-r" role="button" onClick={() => setShowRes(2)}>Next</button>
                     
                     </div> 
                 ) : null
@@ -731,14 +733,14 @@ function App() {
                         (ibs && item.Disease_group.includes("IBS"))))).map((row, index) => (
                         <p>{row.Statements}</p>         
                     ))}
-                        <p>In accordance with the medical conditions indicated in your survey response, we would like to recommend the following foods: </p>
+                        <p><b>In accordance with the answers indicated in your survey response, we would like to recommend the following foods: </b></p>
                       {(filteredfood.map((row, index) => (
                         <div>
                         <p>{row.Food_Name}</p>
                         </div>
                         )))}
                     
-                        <button onClick={() => setShowRes(1)}>Previous</button>
+                        <button class="button-r" role="button" onClick={() => setShowRes(1)}>Previous</button>
                     
                     </div> 
                 ) : null) : <h1>loading</h1>

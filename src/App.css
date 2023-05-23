@@ -12,6 +12,10 @@
   overflow-y: scroll;
 }
 
+body {
+  background-color: #FAF9F6;
+}
+
 
 .App-logo {
   height: 40vmin;
@@ -75,18 +79,6 @@
   margin: 0 auto;
 }
 
-table {
-  margin: auto;
-  line-height: 200%;
-  padding: 10%;
-}
-
-th, td {
-  margin: auto;
-  line-height: 200%;
-  padding: 10%;
-}
-
 .question-card, .result-card {
   /* Center the div  */
   margin: 0 auto;
@@ -106,18 +98,10 @@ th, td {
 
 .M1d div {
   white-space: pre-wrap;
-  text-align: center;
+  
   overflow: 'auto';
 }
 
-td {
-  white-space: pre;
-  display: flex;
-}
-
-tr {
-  display: flex;
-}
 
 .result-card {
   /* Center the div  */
@@ -136,8 +120,164 @@ tr {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
-
+.report {
+  text-align: left;
+  
+}
 p {
   line-height: 200%;
+}
+
+/* CSS */
+.button-1 {
+  background-color: #EA4C89;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-1:hover,
+.button-1:focus {
+  background-color: #F082AC;
+}
+
+.button-2 {
+  background-color: #EA4C89;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin-left: 20px;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-2:hover,
+.button-2:focus {
+  background-color: #F082AC;
+}
+
+@media screen and (max-width: 700px) {
+  .section__padding {
+      padding: 4rem;
+  }
+
+  .section__margin {
+      margin: 4rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .section__padding {
+      padding: 4rem 2rem;
+  }
+
+  .section__margin {
+      margin: 4rem 2rem;
+  }
+}
+
+.button-r {
+  background-color: #EA4C89;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin-left: 80%;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-r:hover,
+.button-r:focus {
+  background-color: #F082AC;
+}
+
+.button-r1 {
+  background-color: #EA4C89;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin-right: 80%;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-r1:hover,
+.button-r1:focus {
+  background-color: #F082AC;
+}
+
+.food-listing {
+  line-height: 100%;
 }
 
