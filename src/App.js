@@ -67,6 +67,7 @@ function App() {
   const [nut_legumes, setNutLegumes] = useState(0);
   const [red_meat, setRedMeat] = useState(0);
   const [whole_grains, setWholeGrains] = useState(0);
+  const [isVeg, setIsVeg] = useState(false);
 
   //mood
   const [remembering, setRemembering] = useState(0);
@@ -144,25 +145,32 @@ function App() {
     var fruitcount = 0;
     var vegcount = 0;
     var protcount = 0;
+    var maxProt = 3;
     const rendFruit1 = (item) => {
-      if ((parseInt(item.Type) < 1) && graincount < 1) {
+      if (!grain_allergy && (parseInt(item.Type) < 1) && graincount < 1) {
               graincount += 1;
               return (true);               
       } else if (parseInt(item.Type) === 1 && fruitcount < 3) {
-
               fruitcount += 1;
               return (true);
       } else if (parseInt(item.Type) === 2 && vegcount < 3) {
               vegcount += 1;
               return (true);
-      } else if (parseInt(item.Type) === 3 && protcount < 3) {
+      } else if ((parseInt(item.Type) === 3) && protcount < (!grain_allergy ? 3 : 4) && !isVeg) {
               protcount += 1;
               return (true);
+      } else if (parseInt(item.Type) === 4 && protcount < (!grain_allergy ? 3 : 4) && !isVeg) {
+        protcount += 1;
+        return (true);
+      } else if (parseInt(item.Type) === 4 && protcount < (!grain_allergy ? 3 : 4) && isVeg) {
+        protcount += 1;
+        return (true);
       } else { return false;}
 
     }
 
   const handleChange = () => {
+    setIsVeg(fish === 0 && red_meat === 0);
     const getFood = async () => {
       calcLw();
       calcFw();
