@@ -668,14 +668,21 @@ function App() {
 
             {showRes === 1 ? (
                     <div className='result-card'>
-                        <h2>{name},</h2>
-                        <h3>Welcome to your results!</h3>
-                        <p>According to the survey, your microbiome scores are as follows:</p>
+                        <h2>Overview</h2>
+                        {opens.filter(item => (item.Disease_group.includes("General") || ((diabetes && item.Disease_group.includes("Diabetes")) ||
+                        (hbp && item.Disease_group.includes("Hypertension")) || 
+                        (hbc && item.Disease_group.includes("Dyslipidemia")) ||
+                        (ibs && item.Disease_group.includes("IBS"))))).map((row, index) => (
+                        <p>{row.Statements}</p>         
+                    ))}
+                        <p>From your answers to the survey, we have scored your microbiome as follows:</p>
                         <p>Live Well Score <i>(scores your neurotransmission pathways)</i>: {lwscore > 12 ? ("Poor") : (lwscore > 6 ? ("Good") : ("Great"))}</p>
                         <p>Think Well Score <i>(scores your gut, heart, and liver health)</i>: {twscore > 12 ? ("Poor") : (twscore > 6 ? ("Good") : ("Great"))}</p>
                         <p>Feel Well Score <i>(scores your gut’s energy harvesting pathways)</i>: {fwscore > 12 ? ("Poor") : (fwscore > 6 ? ("Good") : ("Great"))}</p>
-
-                        <h4>We recommend the following foods according to your microbiome type:</h4>
+                        <h2>Recommendations</h2>
+                        <h4>From your survey response, we recommend the following foods:</h4>
+                        <div className="row">
+                        <div class="column">
                         <div className='food-listing'>
                         {parseFloat(twscore) > 12 && lwscore>12 && parseFloat(fwscore)>12? 
                           (<div><MBrender type={"2"} allergies={{nut: nut_allergy, shellfish: shellfish_allergy, egg: egg_allergy, 
@@ -691,34 +698,25 @@ function App() {
                           (<div><MBrender type={"3"} allergies={{nut: nut_allergy, shellfish: shellfish_allergy, egg: egg_allergy, 
                             milk: milk_allergy, grain: grain_allergy, soy: soy_allergy, fish: fish_allergy}} /></div>)))}
                         </div>
-                        <button class="button-1" role="button" onClick={() => setShowRes(2)}>Next</button>
-                    </div> 
-                ) : null
-            }
+                        </div>
+                        <div class="column">
 
-              {(showRes === 2 ? (
-                    <div className='result-card'>
-                        <h2>{name},</h2>
-                        <h3>Welcome to your results!</h3>
-                        <h4>Overview</h4>
-                        {opens.filter(item => (item.Disease_group.includes("General") || ((diabetes && item.Disease_group.includes("Diabetes")) ||
-                        (hbp && item.Disease_group.includes("Hypertension")) || 
-                        (hbc && item.Disease_group.includes("Dyslipidemia")) ||
-                        (ibs && item.Disease_group.includes("IBS"))))).map((row, index) => (
-                        <p>{row.Statements}</p>         
-                    ))}
-                        <p><b>In accordance with the answers indicated in your survey response, we would like to recommend the following foods: </b></p>
                       {(filteredfood.map((row, index) => (
                         <div>
                         <p>{row.Food_Name}</p>
                         </div>
                         )))}
-                        <div className='buttons-r-div'>
-                        <button class="button-1" role="button" onClick={() => setShowRes(1)}>Previous</button>
-                        <button class="button-2" role="button" onClick={() => window.location.reload(false)}>Restart Survey</button>
+                        
                         </div>
-                    </div> 
-                ) : null)
+                        
+                        </div>
+                        <table>
+                        <div>
+                        <button class="button-3" role="button" onClick={() => window.location.reload(false)}>Restart Survey</button>
+                        </div>
+                        </table>
+                    </div>
+                ) : null
             }
         </div>
       ) : null}
