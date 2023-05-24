@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/amilifoodloc/static/css/main.d54c4724.css",
+    "main.css": "/amilifoodloc/static/css/main.6e74857f.css",
     "main.js": "/amilifoodloc/static/js/main.e659f260.js",
     "static/js/787.6ac382ac.chunk.js": "/amilifoodloc/static/js/787.6ac382ac.chunk.js",
     "static/media/Food_Logic_Vitality.csv": "/amilifoodloc/static/media/Food_Logic_Vitality.54dc9951bcaf5d61981e.csv",
     "static/media/open_s.csv": "/amilifoodloc/static/media/open_s.0ecb117938eb6ec14d8f.csv",
     "static/media/MB_food.csv": "/amilifoodloc/static/media/MB_food.be81d9bceaa991d4e361.csv",
     "index.html": "/amilifoodloc/index.html",
-    "main.d54c4724.css.map": "/amilifoodloc/static/css/main.d54c4724.css.map",
+    "main.6e74857f.css.map": "/amilifoodloc/static/css/main.6e74857f.css.map",
     "main.e659f260.js.map": "/amilifoodloc/static/js/main.e659f260.js.map",
     "787.6ac382ac.chunk.js.map": "/amilifoodloc/static/js/787.6ac382ac.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d54c4724.css",
+    "static/css/main.6e74857f.css",
     "static/js/main.e659f260.js"
   ]
 }
