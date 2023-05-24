@@ -335,14 +335,10 @@ function App() {
         <div className='question-card'>
           <h2>Welcome to AMILI's food recommendation survey!</h2>
           <h3>Based off the information you provide here, we will recommend certain foods accordingly. We do not store or collect the information provided here.</h3>
-          <h3>This survey consists of 14 questions targeting various aspects of your lifestyle.</h3>
+          <h3>This survey consists of 13 questions targeting various aspects of your lifestyle.</h3>
           <h3>First, help us get to know you better. Providing demographic information helps us give more targeted recommendations based on your answers.</h3>
-          <div className='Enter_Name'>
-            <label><b>Q1.</b>   Please enter your name:</label>
-            <p><input type='text' value={name} onChange={(e) => setName(e.target.value)} /></p>
-          </div>
           <div className='Gender'>
-            <label><b>Q2.</b>   What is your gender?</label>
+            <label><b>Q1.</b>   What is your gender?</label>
             <form>
               <select value={gender} onChange={(e) => setGender(e.target.value)}>
                 <option value="Female">Female</option>
@@ -352,11 +348,11 @@ function App() {
             </form>
           </div>
           <div className='DOB'>
-            <label><b>Q3.</b>   What is your date of birth?</label>
+            <label><b>Q2.</b>   What is your date of birth?</label>
             <p><input type='date' max={current} /></p>
           </div>
           <div className='Ethnicity'>
-            <label><b>Q4.</b>   What is your ethnicity?</label>
+            <label><b>Q3.</b>   What is your ethnicity?</label>
             <form>
               <select value={ethnicity} onChange={(e) => setEthnicity(e.target.value)}>
                 <option value="Chinese">Chinese</option>
@@ -372,16 +368,16 @@ function App() {
               </div> ) : null}
           </div>
           <div className="height">
-              <label><b>Q5.</b>   Please enter your height in centimeters (cm), to the nearest whole number. (eg. 165)</label>
+              <label><b>Q4.</b>   Please enter your height in centimeters (cm), to the nearest whole number. (eg. 165)</label>
               <p><input type='number' value={height} onChange={(e) => setHeight(e.target.value)}/></p>
             </div>
             <div className="weight">
-              <label><b>Q6.</b>   Please enter your weight in kilograms (kg), to the nearest whole number. (eg. 65)</label>
+              <label><b>Q5.</b>   Please enter your weight in kilograms (kg), to the nearest whole number. (eg. 65)</label>
               <p><input type='number' value={weight} onChange={(e) => setWeight(e.target.value)}/></p>
             </div>
           <div className="family_history">
               <h3>This section helps us understand your medical history and gut-related issues. Understanding this allows us to determine the help you need most!</h3>
-              <label><b>Q7.</b>   Have <b>you or any of your immediate family members</b> (parents, siblings, or children) recorded the following medical conditions? (check all that apply)</label>
+              <label><b>Q6.</b>   Have <b>you or any of your immediate family members</b> (parents, siblings, or children) recorded the following medical conditions? (check all that apply)</label>
               <p><input type="checkbox" checked={cd_history_checked} onChange={() => setcdChecked(!cd_history_checked)} />Cardiovascular Diseases</p>
               <p><input type="checkbox" checked={cc_history_checked} onChange={() => setccChecked(!cc_history_checked)} />Colon Cancer / Colorectal cancer</p>
               <p><input type="checkbox" checked={gerd_history_checked} onChange={() => setgerdChecked(!gerd_history_checked)} />Gastroesophageal Reflux Disease (GERD)</p>
@@ -391,7 +387,7 @@ function App() {
               <p><input type="checkbox" checked={nofam_checked} onChange={() => setnofamChecked(!nofam_checked)} />None of these apply</p>
           </div>
           <div className="chronic_diseases">
-              <label><b>Q8.</b>   Have <b>you</b> recorded the following medical conditions? (check all that apply)</label>
+              <label><b>Q7.</b>   Have <b>you</b> recorded the following medical conditions? (check all that apply)</label>
               <p><input type="checkbox" checked={diabetes} onChange={() => setDiabetes(!diabetes)} />Diabetes</p>
               <p><input type="checkbox" checked={hbp} onChange={() => setHbp(!hbp)} />High Blood Pressure</p>
               <p><input type="checkbox" checked={hbc} onChange={() => setHbc(!hbc)} />High Blood Cholesterol</p>
@@ -399,7 +395,7 @@ function App() {
               <p><input type="checkbox" checked={noself_checked} onChange={() => setnoselfChecked(!noself_checked)} />None of these apply</p>
           </div>
           <div className="allergies">
-            <label><b>Q9.</b>   Are you allergic to any of the following foods? (check all that apply)</label>
+            <label><b>Q8.</b>   Are you allergic to any of the following foods? (check all that apply)</label>
             <p><input type="checkbox" checked={nut_allergy} onChange={() => setNutAllergy(!nut_allergy)} />Nuts</p>
             <p><input type="checkbox" checked={shellfish_allergy} onChange={() => setShellfishAllergy(!shellfish_allergy)} />Shellfish</p>
             <p><input type="checkbox" checked={egg_allergy} onChange={() => setEggAllergy(!egg_allergy)} />Eggs</p>
@@ -417,7 +413,7 @@ function App() {
         {showQuestion === 2 ? (
           <div className='question-card'>
             <div className="stomach_history">
-              <h4><b>Q10.</b>   In the past one week, how often did you experience the following?</h4>
+              <h4><b>Q9.</b>   In the past one week, how often did you experience the following?</h4>
               <label><b>a)</b>   Acid Reflux (when some of the acidic stomach contents go back up into the back of your throat)</label>
               <form>
                 <select value={acid_reflux} onChange={(e) => setAcidReflux(e.target.value)}>
@@ -481,7 +477,7 @@ function App() {
             </div>  
             <div className='diet'>
               <h3>This section gives us a snapshot of your diet and helps us assess the links between your lifestyle and your gut health. This then improves our food recommendations for you.</h3>
-              <h4><b>Q11.</b>   In the past week, how many servings of the following did you consume? (1 serving is roughly the size of your closed fist)</h4>
+              <h4><b>Q10.</b>   In the past week, how many servings of the following did you consume? (1 serving is roughly the size of your closed fist)</h4>
               <label><b>a)</b>   Fruits</label>
               <form>
                 <select value={fruit} onChange={(e) => setFruit(e.target.value)}>
@@ -502,7 +498,7 @@ function App() {
               </form>
             </div>
             <div className='diet-2'>
-              <h4><b>Q12.</b>   In the past week, how often did you consume of the following?</h4>
+              <h4><b>Q11.</b>   In the past week, how often did you consume of the following?</h4>
               <label><b>a)</b>   Alcoholic drinks</label>
               <form>
                 <select value={alcohol} onChange={(e) => setAlcohol(e.target.value)}>
@@ -566,7 +562,7 @@ function App() {
           <div className='question-card'>
             <div className='mental'>
               <h3>Almost there! This last section helps us understand your general well-being. Here, we aim to draw more linkages to your gut microbiome and your mental and physical health.</h3>
-              <h4><b>Q13.</b>   In the past one week, how often did you experience the following?</h4>
+              <h4><b>Q12.</b>   In the past one week, how often did you experience the following?</h4>
               <label><b>a)</b>   Difficulty remembering / recalling things</label>
               <form>
                 <select value={remembering} onChange={(e) => setRemembering(e.target.value)}>
@@ -599,7 +595,7 @@ function App() {
               </form>
             </div>
             <div className='activity'>
-              <h4><b>Q14.</b>   In the past one week, how often did you</h4>
+              <h4><b>Q13.</b>   In the past one week, how often did you</h4>
               <label><b>a)</b>   Exercise for a minimum of 30 minutes</label>
               <form>
                 <select value={minThirty} onChange={(e) => setMinThirty(e.target.value)}>
