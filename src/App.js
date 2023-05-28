@@ -77,6 +77,13 @@ function App() {
   const [shortness, setShortness] = useState(0);
   const [lethargic, setLethargic] = useState(0);
 
+  const shuffleArray = (array) => {
+    for (let i = 170; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(Data);
@@ -88,7 +95,8 @@ function App() {
         header: true, 
         skipEmptyLines: true,
       }).data;
-      setData(parsedData)
+      shuffleArray(parsedData);
+      setData(parsedData);
     }
     fetchData();
     const fetchoData = async () => {
@@ -116,19 +124,13 @@ function App() {
     var vegcount = 0;
     var protcount = 0;
     const rendFruit1 = (item) => {
-      if (!grain_allergy && (parseInt(item.Type) < 1) && graincount < 1 
-      && (gender === "Female" ? (parseInt(item.Gender) === 1) : true) 
-      && (gender === "Male" ? (parseInt(item.Gender) === 2) : true)) {
+      if (!grain_allergy && (parseInt(item.Type) < 1) && graincount < 1) {
               graincount += 1;
               return (true);               
-      } else if (parseInt(item.Type) === 1 && fruitcount < 3
-      && (gender === "Female" ? (parseInt(item.Gender) === 1) : true) 
-      && (gender === "Male" ? (parseInt(item.Gender) === 2) : true)) {
+      } else if (parseInt(item.Type) === 1 && fruitcount < 3) {
               fruitcount += 1;
               return (true);
-      } else if (parseInt(item.Type) === 2 && vegcount < 3 
-      && (gender.includes("Female") ? (parseInt(item.Gender) === 1) : true) 
-      && (gender.includes("Male") ? (parseInt(item.Gender) === 2) : true)) {
+      } else if (parseInt(item.Type) === 2 && vegcount < 3) {
               vegcount += 1;
               return (true);
       } else if ((parseInt(item.Type) === 3) && protcount < (!grain_allergy ? 3 : 4) && !isVeg) {
@@ -144,6 +146,8 @@ function App() {
 
     }
 
+  
+
   const handleChange = () => {
     setIsVeg(fish === 0 && red_meat === 0);
     const getFood = async () => {
@@ -153,7 +157,7 @@ function App() {
       if (bloating > 1 || pass_stool > 1 || ibs) {
         setIbs(true);
       }
-      const tempfd = await data.filter(item => item && (!diabetes || (item.Diabetes_Score > 4)) 
+      const tempfd = await data.filter(item => item && (item.Healthy > 2) && (!diabetes || (item.Diabetes_Score > 4)) 
       && (!hbp || (item.Hypertension_Score > 4)) && (!hbc || (item.Hyperlipidimia_Score > 4))
       && (!obese || (item.Obesity_Score.includes("Y"))) 
       && (!ibs || item.Irritable_Bowel_Syndrome_Score > 4) 
