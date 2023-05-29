@@ -157,15 +157,15 @@ function App() {
       if (bloating > 1 || pass_stool > 1 || ibs) {
         setIbs(true);
       }
-      const tempfd = await data.filter(item => item && (item.Healthy > 2) && (!diabetes || (item.Diabetes_Score > 4)) 
+      const tempfd = await data.filter(item => item && (item.Healthy > 3) && (!diabetes || (item.Diabetes_Score > 4)) 
       && (!hbp || (item.Hypertension_Score > 4)) && (!hbc || (item.Hyperlipidimia_Score > 4))
       && (!obese || (item.Obesity_Score.includes("Y"))) 
       && (!ibs || item.Irritable_Bowel_Syndrome_Score > 4) 
       && (!nut_allergy || !String(item.Allergens).includes("Nuts")) 
       && (!shellfish_allergy || !String(item.Allergens).includes("Shellfish")) 
       && (!egg_allergy || !String(item.Allergens).includes("Egg"))
-      && (!milk_allergy || !String(item.Allergens).includes("Milk"))  
-      && (!grain_allergy || !String(item.Allergens).includes("Grain")) 
+      && (!milk_allergy || !String(item.Allergens).includes("Lactose"))  
+      && (!grain_allergy || !String(item.Allergens).includes("Gluten")) 
       && (!soy_allergy || !String(item.Allergens).includes("Soy")) 
       && (!fish_allergy || !String(item.Allergens).includes("Fish")) 
       && rendFruit1(item));
